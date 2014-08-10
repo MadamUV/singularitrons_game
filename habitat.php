@@ -1,5 +1,5 @@
 <?php
-    /*require 'facebook/base_facebook.php';
+    require 'facebook/base_facebook.php';
 	include 'php_extras/connect.php';
 	
 	$facebook = new Facebook(array(
@@ -9,15 +9,9 @@
 	));
 	$me_id = $facebook->getUser();
 
-	if($me_id){
-		$sql_owner = "SELECT * FROM `ownedbots` WHERE `owned_bot`='".$me_id."'";
-		$result_owner = mysqli_query($conn, $sql_owner);
-		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='".$me_id."'";
-		$result_habitat = mysqli_query($conn, $sql_habitat);
-		if(mysqli_num_rows($result_owner)>0){
-			header("Location: habitat.php");
-		}
-	}*/
+        if($me_id){
+		
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +22,7 @@
         <script src="../scripts/jquery.js"></script>
 </head>
 <body>
-        <div id="callback"><img src="assets_and_scenes/singular_singularitrons2_3.jpg" alt="singulatrons have arrived and the robots want companionship and to talk"></div>
+        <div id="callback"><img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Choose a habitat for your bot!</font></div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.png" alt="spaceship" class="spaceship"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat</button></div></div>
         <script>
                 function statusChangeCallback(response) {
     // The response object is returned with a status field that lets the
@@ -96,18 +90,13 @@
   function useAPI() {
     FB.api('/me', function(response) {
             var me_id = response.id;
-			$("#apiDiv").html(response.id);
             var me_firstname = response.first_name;
 			var apiDiv_content = $("#apiDiv").html();
             $("#buttonDiv").html('Logged in');
             $.post("php_post/checkIdentity.php", {me_id : me_id, me_firstname : me_firstname}, function(data) {
-				//if (apiDiv_content == ""){
+				if (apiDiv_content == ""){
 					document.getElementById('callback').innerHTML=data;
-				//}
-			$("#select_starter").click(function(){
-				var starter_bot = $("#starter_item img").attr("class");
-				$.post("php_post/checkIdentity.php", {me_id : me_id, starter_bot : starter_bot}, function(data2) {
-            document.getElementById('callback').innerHTML=data2;
+				}
 					$("#select_habitat").click(function(){
 						var starter_bot = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
@@ -135,28 +124,7 @@
 							   //while containing perhaps some flash objects for the main bacground, can also
 							   //have some objects further in the foregorund for the robot to interact with.
 						}
-					});
 				});
-            });
-			//starter bots will need to have separate tables for their ids, or same table perhaps.
-			$("#next_starter").click(function(){
-				//
-                    if($("#starter_item img").attr("class")=="pseudo"){
-                           $("#starter_item img").attr("alt", "four hundred fifty power coins and one Connectotalx robot").attr("class", "connect").attr("src", "assets_and_scenes/connectPack.png").fadeIn();
-						   $("#welcome").html('<p>Connectotalx repeats anything it hears<br>except for common cursewords.</p>');
-                    }
-                    else if($("#starter_item img").attr("class")=="connect"){
-                           $("#starter_item img").attr("alt", "five hundred power coins and one Molly bot").attr("class", "molly").attr("src", "assets_and_scenes/mollyPack.png").fadeIn();
-						   $("#welcome").html("<p>Mollybot doesn't learn,<br>but switches personalities.</p>");
-                    }
-                    else if($("#starter_item img").attr("class")=="molly"){
-                           $("#starter_item img").attr("alt", "eight hundred power coins and one Clever Fred robot").attr("class", "fred").attr("src", "assets_and_scenes/fredPack.png").fadeIn();
-							$("#welcome").html('<p>Clever Fred tries to tell jokes.</p>');
-                    }
-                    else {
-                           $("#starter_item img").attr("alt", "seven hundred power coins and one pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/pseudobotPack.png").fadeIn();
-						   $("#welcome").html('<p>Pseudobot speaks by checking to what degree<br>a word represents something.</p>');
-                    }
             });
         });//take care of the conditionals in the php script	
 	});
