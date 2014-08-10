@@ -10,9 +10,6 @@
 		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='" . $me_id . "' LIMIT 1";
 		$result_habitat = mysqli_query($conn, $sql_habitat);
 		//conditionals begin
-		if(mysqli_num_rows($result_owner)>0) {
-			echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Welcome!</font><br>Greetings, my friend!<br>Please select your<br> robot habitat from the right!</div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.jpg" alt="spaceship" class="spaceship"></div><div id="starter_habitat_buttons"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat choice</button></div>';
-		}
 		if(mysqli_num_rows($result1)==0 && isset($_POST['me_firstname'])){
         	$me_firstname = $_POST['me_firstname'];
 			$sql_insert = "INSERT INTO levels (user_id, first_name, level) VALUES ('" . $me_id  . "',  '" . $me_firstname ."','0')";
@@ -35,7 +32,7 @@
 					echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Choose a habitat for your bot!</font></div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.png" alt="spaceship" class="spaceship"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat</button></div>';
 				}
 				else if(isset($_POST['me_firstname'])) {
-					echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Welcome!</font><br>Greetings, my friend!<br>Please select your<br> robot habitat from the right!</div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.jpg" alt="spaceship" class="spaceship"></div><div id="starter_habitat_buttons"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat choice</button></div>';
+					echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="20">Welcome<br>back!</font><br>Select your  robot\'s habitat!</div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.jpg" alt="spaceship" class="spaceship"></div><div id="starter_habitat_buttons"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat choice</button></div>';
 				}
 				if(isset($_POST['starter_habitat'])) {
 					$starter_habitat = $_POST['starter_habitat'];

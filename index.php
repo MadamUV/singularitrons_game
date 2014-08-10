@@ -1,5 +1,5 @@
 <?php
-    require 'facebook/base_facebook.php';
+    /*require 'facebook/base_facebook.php';
 	include 'php_extras/connect.php';
 	
 	$facebook = new Facebook(array(
@@ -17,7 +17,7 @@
 		if(mysqli_num_rows($result_owner)>0){
 			header("Location: habitat.php");
 		}
-	}
+	}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -104,6 +104,34 @@
 				//if (apiDiv_content == ""){
 					document.getElementById('callback').innerHTML=data;
 				//}
+			$("#select_habitat").click(function(){
+						var starter_bot = $("#starter_habitat img").attr("class");
+						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
+					document.getElementById('callback').innerHTML=data3;
+						});
+					});
+					$("#next_habitat").click(function(){
+				//
+						if($("#starter_habitat img").attr("class")=="spaceship"){
+							   $("#starter_habitat img").attr("alt", "backyard").attr("class", "backyard").attr("src", "assets_and_scenes/habitat2.jpg").fadeIn();
+							   $("#welcome").html('<p>Backyard lawn suitable for a<br>friendly pet robot at home.</p>');
+						}
+						else if($("#starter_habitat img").attr("class")=="backyard"){
+							   $("#starter_habitat img").attr("alt", "city").attr("class", "city").attr("src", "assets_and_scenes/habitat3.jpg").fadeIn();
+							   $("#welcome").html("<p>View of city skycrapers.</p>");
+						}
+						else if($("#starter_habitat img").attr("class")=="city"){
+							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "mad scientist lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
+								$("#welcome").html('<p>Mad science is<br>always fun.</p>');
+						}
+						else {
+							   $("#starter_habitat img").attr("alt", "spaceship").attr("class", "spaceship").attr("src", "assets_and_scenes/habitat1.jpg").fadeIn();
+							   $("#welcome").html('<p>What better place<br>to be as a robot?</p>');
+							   //Note that background images needn't be all one file. They can be layered, and
+							   //while containing perhaps some flash objects for the main bacground, can also
+							   //have some objects further in the foregorund for the robot to interact with.
+						}
+					});
 			$("#select_starter").click(function(){
 				var starter_bot = $("#starter_item img").attr("class");
 				$.post("php_post/checkIdentity.php", {me_id : me_id, starter_bot : starter_bot}, function(data2) {
