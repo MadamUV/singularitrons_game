@@ -1,5 +1,5 @@
 <?php
-    /*require 'facebook/base_facebook.php';
+    require 'facebook/base_facebook.php';
 	include 'php_extras/connect.php';
 	
 	$facebook = new Facebook(array(
@@ -17,7 +17,7 @@
 		if(mysqli_num_rows($result_owner)>0){
 			header("Location: habitat.php");
 		}
-	}*/
+	}
 ?>
 <!DOCTYPE html>
 <html>
