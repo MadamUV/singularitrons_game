@@ -105,7 +105,7 @@
 					document.getElementById('callback').innerHTML=data;
 				//}
 			$("#select_habitat").click(function(){
-						var starter_bot = $("#starter_habitat img").attr("class");
+						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 					document.getElementById('callback').innerHTML=data3;
 						});
@@ -118,7 +118,7 @@
 						}
 						else if($("#starter_habitat img").attr("class")=="backyard"){
 							   $("#starter_habitat img").attr("alt", "city").attr("class", "city").attr("src", "assets_and_scenes/habitat3.jpg").fadeIn();
-							   $("#welcome").html("<p>View of city skycrapers.</p>");
+							   $("#welcome").html("<p>View of the city.</p>");
 						}
 						else if($("#starter_habitat img").attr("class")=="city"){
 							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "mad scientist lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
@@ -150,7 +150,7 @@
 						}
 						else if($("#starter_habitat img").attr("class")=="backyard"){
 							   $("#starter_habitat img").attr("alt", "city").attr("class", "city").attr("src", "assets_and_scenes/habitat3.jpg").fadeIn();
-							   $("#welcome").html("<p>View of city skycrapers.</p>");
+							   $("#welcome").html("<p>View of the city.</p>");
 						}
 						else if($("#starter_habitat img").attr("class")=="city"){
 							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "mad scientist lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();

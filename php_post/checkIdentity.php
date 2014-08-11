@@ -36,7 +36,7 @@
 				}
 				if(isset($_POST['starter_habitat'])) {
 					$starter_habitat = $_POST['starter_habitat'];
-					$sql_insert = "INSERT INTO ownedhabitats (user_id, owned_habitat, yesNo) VALUES ('" . $me_id  . "', '" . $starter_habitat . "', 'yes')";
+					$sql_insert = "INSERT INTO ownedhabitats (user_id, habitat, yes_no) VALUES ('" . $me_id  . "', '" . $starter_habitat . "', 'yes')";
 					mysqli_query($conn, $sql_insert);
 				}
 			}
