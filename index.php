@@ -152,7 +152,7 @@
 							   $("#welcome").html("<p>View of the city.</p>");
 						}
 						else if($("#starter_habitat img").attr("class")=="city"){
-							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "mad scientist lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
+							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
 								$("#welcome").html('<p>Mad science is<br>always fun.</p>');
 						}
 						else {
