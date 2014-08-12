@@ -78,10 +78,10 @@ for($m=0; $m<count($bot1); $m++) {
           array_push($bad, "Sounds really bad if it's a ");
           //if((string)llGetLinkPrimitiveParams(2, [PRIM_DESC]) == "0")
 					//Instead of this, use database.
-          {
+          //{
 						$rand3 = rand(0, count($bad)-1);
 						return $bad[$rand3] . $noun1[$n][0];
-          }
+          //}
         }
       else if ($noun1[$n][6] < -6)
         {
@@ -91,12 +91,12 @@ for($m=0; $m<count($bot1); $m++) {
           array_push($_private, "Once in a while I need to be alone in my ");
           array_push($_private, "It's nice to withdraw once in a while into your ");
           array_push($_private, "Looking within my ");
-          if((string)llGetLinkPrimitiveParams(2, [PRIM_DESC]) == "0")
-          {
+          //if((string)llGetLinkPrimitiveParams(2, [PRIM_DESC]) == "0")
+          //{
 					//add another condition listening for other bots with isset above
 						$rand3 = rand(0, count($$_private)-1);
 						return $$_private[$rand3] . $noun1[$n][0];
-          }
+          //}
         }
       else if ($noun1[$n][5] > 6)
         {
@@ -118,30 +118,29 @@ for($m=0; $m<count($bot1); $m++) {
           array_push($beauty, "You possess the beauty of a ");
           array_push($beauty, "You are as amazing to behold as a ");
           array_push($beauty, "Behold the loveliness of a ");
-          if((string)llGetLinkPrimitiveParams(2, [PRIM_DESC]) == "0")
-          {
+          //if((string)llGetLinkPrimitiveParams(2, [PRIM_DESC]) == "0")
+          //{
 			//use isset within these conditionals
 				$rand3 = rand(0, count($beauty)-1);
 				return $beauty[$rand3] . $noun1[$n][0];
-          }
+          //}
         }
       if ($noun1[$n][2] < -3)
         {
-          list stupid = array();
-          stupid += "You're definitely smarter than a ";
-          stupid += "Do they think much, this ";
-          stupid += "Intelligence belongs in you, not in a ";
-          stupid += "I think you're smarter than a ";
-          stupid += "You're smart, at least compared to a ";
-          stupid += "You're a smart onem but what about a ";
+          $stupid = array();
+          array_push($stupid, "You're definitely smarter than a ");
+          array_push($stupid, "Do they think much, this ");
+          array_push($stupid, "Intelligence belongs in you, not in a ");
+          array_push($stupid, "I think you're smarter than a ");
+          array_push($stupid, "You're smart, at least compared to a ");
+          array_push($stupid, "You're a smart onem but what about a ");
           
-          if((string)llGetLinkPrimitiveParams(2, [PRIM_DESC]) == "0")
-          {
-          llSay(0, llList2String(stupid, (integer)llFrand(llGetListLength(stupid)-1)) + index($noun1, i, 7, 0));
-    llMessageLinked(2, 0, llList2String(stupid, (integer)llFrand(llGetListLength(stupid)-1)) + index($noun1, i, 7, 0), array("");
-          llResetScript();
-          }
-        }
+          //if()
+			//{
+				//use isset within these conditionals
+				$rand3 = rand(0, count($stupid)-1);
+				return $[$rand3] . $noun1[$n][0];
+			//}
       }  
     }
   }
