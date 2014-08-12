@@ -96,7 +96,6 @@
   function useAPI() {
     FB.api('/me', function(response) {
             var me_id = response.id;
-			$("#apiDiv").html(response.id);
             var me_firstname = response.first_name;
 			var apiDiv_content = $("#apiDiv").html();
             $("#buttonDiv").html('Logged in');
@@ -121,7 +120,7 @@
 							   $("#welcome").html("<p>View of the city.</p>");
 						}
 						else if($("#starter_habitat img").attr("class")=="city"){
-							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "mad scientist lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
+							   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
 								$("#welcome").html('<p>Mad science is<br>always fun.</p>');
 						}
 						else {
@@ -137,7 +136,7 @@
 				$.post("php_post/checkIdentity.php", {me_id : me_id, starter_bot : starter_bot}, function(data2) {
             document.getElementById('callback').innerHTML=data2;
 					$("#select_habitat").click(function(){
-						var starter_bot = $("#starter_habitat img").attr("class");
+						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 					document.getElementById('callback').innerHTML=data3;
 						});
