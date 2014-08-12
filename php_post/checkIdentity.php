@@ -22,8 +22,24 @@
 				}
 				else if(isset($_POST['starter_bot'])) {
 					$starter_bot = $_POST['starter_bot'];
-					$sql_insert = "INSERT INTO ownedbots (user_id, owned_bot) VALUES ('" . $me_id  . "', '" . $starter_bot . "')";
+					$sql_insert = "INSERT INTO ownedbots (user_id, owned_bot) VALUES ('" . $me_id . "', '" . $starter_bot . "')";
 								mysqli_query($conn, $sql_insert);
+					if($starter_bot=="pseudo") {
+						$sql_insert = "INSERT INTO powercoins (user_id, powercoins) VALUES ('" . $me_id . "', '700')";
+						mysqli_query($conn, $sql_insert);
+						}
+					else if($starter_bot=="connect"){
+						$sql_connect = "INSERT INTO powercoins (user_id, powercoins) VALUES ('" . $me_id . "', '450')";
+						mysqli_query($conn, $sql_connect);
+					}
+					else if($starter_bot=="molly"){
+						$sql_molly = "INSERT INTO powercoins (user_id, powercoins) VALUES ('" . $me_id . "', '500')";
+						mysqli_query($conn, $sql_molly);
+					}
+					else if($starter_bot=="fred"){
+						$sql_fred = "INSERT INTO powercoins (user_id, powercoins) VALUES ('" . $me_id . "', '800')";
+						mysqli_query($conn, $sql_fred);
+					}
 					echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Welcome!</font><br>Greetings, my friend!<br>Please select your<br> robot habitat from the right!</div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.jpg" alt="spaceship" class="spaceship"></div><div id="starter_habitat_buttons"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat choice</button></div>';
 				}
 			}
@@ -45,7 +61,7 @@
 							else if($row_habitat["habitat"]=="backyard"){
 								echo '<img src="assets_and_scenes/singular_backyard.gif" alt="green grassy backyard"><div id="robots"></div>';
 							}
-							else if($row_habitat["habitat"]=="backyard"){
+							else if($row_habitat["habitat"]=="city"){
 								echo '<img src="assets_and_scenes/singularitrons_roadway3.png" alt="busy city with window lights"><div id="robots"></div>';
 							}
 							else if($row_habitat["habitat"]=="lab"){

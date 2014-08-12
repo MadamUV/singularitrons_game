@@ -156,8 +156,8 @@
 								$("#welcome").html('<p>Mad science is<br>always fun.</p>');
 						}
 						else {
-							   $("#starter_habitat img").attr("alt", "spaceship").attr("class", "spaceship").attr("src", "assets_and_scenes/habitat1.png").fadeIn();
-							   $("#welcome").html('<p>What better place to be as a robot?</p>');
+							   $("#starter_habitat img").attr("alt", "spaceship").attr("class", "spaceship").attr("src", "assets_and_scenes/habitat1.jpg").fadeIn();
+							   $("#welcome").html('<p>What better place<br>to be as a robot?</p>');
 							   //Note that background images needn't be all one file. They can be layered, and
 							   //while containing perhaps some flash objects for the main bacground, can also
 							   //have some objects further in the foregorund for the robot to interact with.
@@ -200,7 +200,7 @@
                        background-color: cyan;
                        position: absolute;
                        left: 610px;
-                       top: 333px;
+                       top: 345px;
                        }
 				#starter_item, #starter_habitat {
 						position: absolute;
