@@ -40,7 +40,7 @@
 							while ($row_habitat = mysqli_fetch_assoc($result_habitat)) {
 						if($row_habitat["yes_no"]=="yes"){
 							if($row_habitat["habitat"]=="spaceship"){
-								echo '<img src="assets_and_scenes/singularitrons_spaceship_time.gif" alt="spaceship with flaming exhaust"><div id="robots"></div>';
+								echo '<img src="assets_and_scenes/singular_spaceship_time.gif" alt="spaceship with flaming exhaust"><div id="robots"></div>';
 							}
 							else if($row_habitat["habitat"]=="backyard"){
 								echo '<img src="assets_and_scenes/singular_backyard.gif" alt="green grassy backyard"><div id="robots"></div>';
@@ -61,7 +61,7 @@
 			while ($row_habitat = mysqli_fetch_assoc($result_habitat)) {
 				if($row_habitat["yes_no"]=="yes"){
 					if($row_habitat["habitat"]=="spaceship"){
-						echo '<img src="assets_and_scenes/singularitrons_spaceship_time.gif" alt="spaceship with flaming exhaust"><div id="robots"></div>';
+						echo '<img src="assets_and_scenes/singular_spaceship_time.gif" alt="spaceship with flaming exhaust"><div id="robots"></div>';
 					}
 					else if($row_habitat["habitat"]=="backyard"){
 						echo '<img src="assets_and_scenes/singular_backyard.gif" alt="green grassy backyard"><div id="robots"></div>';
