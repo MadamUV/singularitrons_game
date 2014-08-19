@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: pdb14.freehostingeu.com
--- Generation Time: Aug 12, 2014 at 11:54 PM
+-- Generation Time: Aug 19, 2014 at 10:49 PM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.27
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `1650712_singular`
 --
-CREATE DATABASE `1650712_singular` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `1650712_singular`;
 
 -- --------------------------------------------------------
 
@@ -39,6 +37,18 @@ CREATE TABLE IF NOT EXISTS `bot_levels` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `language`
+--
+
+CREATE TABLE IF NOT EXISTS `language` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `language` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `levels`
 --
 
@@ -49,13 +59,6 @@ CREATE TABLE IF NOT EXISTS `levels` (
   `level` int(2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `levels`
---
-
-INSERT INTO `levels` (`id`, `user_id`, `first_name`, `level`) VALUES
-(4, '10152607174964846', 'Erin', 0);
 
 -- --------------------------------------------------------
 
@@ -69,13 +72,6 @@ CREATE TABLE IF NOT EXISTS `ownedbots` (
   `owned_bot` varchar(37) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
-
---
--- Dumping data for table `ownedbots`
---
-
-INSERT INTO `ownedbots` (`id`, `user_id`, `owned_bot`) VALUES
-(36, '10152607174964846', 'pseudo');
 
 -- --------------------------------------------------------
 
@@ -91,13 +87,6 @@ CREATE TABLE IF NOT EXISTS `ownedhabitats` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
---
--- Dumping data for table `ownedhabitats`
---
-
-INSERT INTO `ownedhabitats` (`id`, `user_id`, `habitat`, `yes_no`) VALUES
-(20, '10152607174964846', 'spaceship', 'yes');
-
 -- --------------------------------------------------------
 
 --
@@ -110,13 +99,6 @@ CREATE TABLE IF NOT EXISTS `powercoins` (
   `powercoins` int(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `powercoins`
---
-
-INSERT INTO `powercoins` (`id`, `user_id`, `powercoins`) VALUES
-(6, '10152607174964846', 700);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

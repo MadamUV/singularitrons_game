@@ -36,7 +36,7 @@ for($m=0; $m<count($bot1); $m++) {
             $say2 = array(" is the same as being alive.", " is alive, for starters.", " makes me competent enough to answer that question.", " makes me capable of answering that question.", " allows me to be able to answer that, but I'm a bot so I just did.");
 					  $rand = rand(0, count($say)-1);
 					  $rand2 = rand(0, count($say2)-1);
-            return $say[$rand] . $noun1[$n][0] . $say2[$rand2];
+            echo $say[$rand] . $noun1[$n][0] . $say2[$rand2];
           }
           else if($noun1[$n][2] < 0)
           {
@@ -44,13 +44,13 @@ for($m=0; $m<count($bot1); $m++) {
             $say2 = array(" really I am", "I'm not stupid.", "I'm not dumb what do you take me for?", " so really what you take me for?", " by a long shot.");
 					  $rand = rand(0, count($say)-1);
 					  $rand2 = rand(0, count($say2)-1);
-            return $say[$rand] . $noun1[$n][0] . $say2[$rand2];
+            echo $say[$rand] . $noun1[$n][0] . $say2[$rand2];
           }
           else if((integer)llList2String(bot, 6) > (integer)index(noun1, i, 7, 6))
           {
             $say = array("But I'm prettier than a ", "Well what about you? are you prettier than a ", "I'm better-looking than a ");
 					  $rand = rand(0, count($say)-1);
-            return $say[$rand] . $noun1[$n][0];
+            echo $say[$rand] . $noun1[$n][0];
           }
         }    
       //endnnew
@@ -80,7 +80,7 @@ for($m=0; $m<count($bot1); $m++) {
 					//Instead of this, use database.
           //{
 						$rand3 = rand(0, count($bad)-1);
-						return $bad[$rand3] . $noun1[$n][0];
+						echo $bad[$rand3] . $noun1[$n][0];
           //}
         }
       else if ($noun1[$n][6] < -6)
@@ -95,13 +95,13 @@ for($m=0; $m<count($bot1); $m++) {
           //{
 					//add another condition listening for other bots with isset above
 						$rand3 = rand(0, count($$_private)-1);
-						return $$_private[$rand3] . $noun1[$n][0];
+						echo $$_private[$rand3] . $noun1[$n][0];
           //}
         }
       else if ($noun1[$n][5] > 6)
         {
           $beauty = array();
-          array_push(beauty, "I can just imagine the ");
+          array_push($beauty, "I can just imagine the ");
           array_push($beauty, "At night, the ");
           array_push($beauty, "My life");
           array_push($beauty, "There is no end to it. Your lips are like the beautiful ");
@@ -122,7 +122,7 @@ for($m=0; $m<count($bot1); $m++) {
           //{
 			//use isset within these conditionals
 				$rand3 = rand(0, count($beauty)-1);
-				return $beauty[$rand3] . $noun1[$n][0];
+				echo $beauty[$rand3] . $noun1[$n][0];
           //}
         }
       if ($noun1[$n][2] < -3)
@@ -139,10 +139,9 @@ for($m=0; $m<count($bot1); $m++) {
 			//{
 				//use isset within these conditionals
 				$rand3 = rand(0, count($stupid)-1);
-				return $[$rand3] . $noun1[$n][0];
+				echo $stupid[$rand3] . $noun1[$n][0];
 			//}
       }  
     }
   }
-}
 ?>

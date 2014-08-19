@@ -203,7 +203,6 @@
                        top: 345px;
                        }
 				#starter_item, #starter_habitat {
-						position: absolute;
 						top:110px;
                                }
                        #starter_item {
@@ -213,18 +212,22 @@
                                left:295px;
                        }
 				#starter_buttons, #starter_habitat_buttons {
-						position: absolute;
 						top:270px;
 				}
                #starter_buttons {
 					left:435px;
                }
                #starter_habitat_buttons {
-                               left:295px;
+                    left:295px;
                }
                button {
-                       padding:6px;
+                   padding:6px;
+				   position:absolute;
                }
+			   #language_buttons {
+					left:190px;
+					top:382px;
+			   }
         </style>
         
         <div id="buttonDiv"><button id="login_button">Login</button></div>
