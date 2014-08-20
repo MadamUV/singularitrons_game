@@ -9,11 +9,18 @@
 		$result_owner = mysqli_query($conn, $sql_owner);
 		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='" . $me_id . "'";
 		$result_habitat = mysqli_query($conn, $sql_habitat);
-		$sql_language = "SELECT language FROM language WHERE user_id='" . $me_id . "'";
+		$sql_language = "SELECT * FROM language WHERE user_id='" . $me_id . "'";
 		$result_language = mysqli_query($conn, $sql_language);
 		//conditionals begin
 		if(mysqli_num_rows($result_language)==0){
-			echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="language_buttons"><buttonn id="english">English</button><br><button id="Spanish">Spanish</button></div>';
+			if(!isset($_POST['language'])){
+				echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="language_buttons"><buttonn id="english">English</button><br>Note that your robot also uses this language.<br>You can change your language later.<br><button id="Spanish">Español</button><br>Nota que tu roboto también usa ésto idioma.<br>Puedes despues cambiar tu idioma.</div>';
+			}
+			else {
+				$row_lang = mysqli_fetch_assoc($result_language);
+				if($row_lang)
+				echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Welcome!</font><br>Greetings, my friend!<br>You are about to be a<br>proud owner of a Singularitron robot!<br>Please select your starter pack from the right!</div><div id="starter_item"><img src="assets_and_scenes/pseudobotPack.png" class="pseudo" alt="seven hundred power coins and one pseudobot"></div><div id="starter_buttons"><button id="select_starter">Select starter item</button><br><button id="next_starter">Next starter item</button></div><div id="confirm_or_not"></div>';
+			}
 		}
 		else {
 			if(mysqli_num_rows($result1)==0 && isset($_POST['me_firstname'])){

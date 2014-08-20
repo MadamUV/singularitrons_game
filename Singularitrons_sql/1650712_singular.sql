@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: pdb14.freehostingeu.com
--- Generation Time: Aug 19, 2014 at 10:49 PM
+-- Generation Time: Aug 20, 2014 at 12:28 AM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.27
 
@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `bot_levels` (
 
 CREATE TABLE IF NOT EXISTS `language` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL,
   `language` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
