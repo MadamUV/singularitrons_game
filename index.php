@@ -1,24 +1,3 @@
-<?php
-    /*require 'facebook/base_facebook.php';
-	include 'php_extras/connect.php';
-	
-	$facebook = new Facebook(array(
-		'appId' => '1519287708285740',
-		'secret' => 'dc8cb0d2d85d55455b686f1e7ed07b3c',
-		'cookie' => true
-	));
-	$me_id = $facebook->getUser();
-
-	if($me_id){
-		$sql_owner = "SELECT * FROM `ownedbots` WHERE `owned_bot`='".$me_id."'";
-		$result_owner = mysqli_query($conn, $sql_owner);
-		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='".$me_id."'";
-		$result_habitat = mysqli_query($conn, $sql_habitat);
-		if(mysqli_num_rows($result_owner)>0){
-			header("Location: habitat.php");
-		}
-	}*/
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -203,6 +182,7 @@
                        top: 345px;
                        }
 				#starter_item, #starter_habitat {
+						position: absolute;
 						top:110px;
                                }
                        #starter_item {
@@ -212,22 +192,18 @@
                                left:295px;
                        }
 				#starter_buttons, #starter_habitat_buttons {
+						position: absolute;
 						top:270px;
 				}
                #starter_buttons {
 					left:435px;
                }
                #starter_habitat_buttons {
-                    left:295px;
+                               left:295px;
                }
                button {
-                   padding:6px;
-				   position:absolute;
+                       padding:6px;
                }
-			   #language_buttons {
-					left:190px;
-					top:382px;
-			   }
         </style>
         
         <div id="buttonDiv"><button id="login_button">Login</button></div>
