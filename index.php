@@ -1,24 +1,3 @@
-<?php
-    /*require 'facebook/base_facebook.php';
-	include 'php_extras/connect.php';
-	
-	$facebook = new Facebook(array(
-		'appId' => '1519287708285740',
-		'secret' => 'dc8cb0d2d85d55455b686f1e7ed07b3c',
-		'cookie' => true
-	));
-	$me_id = $facebook->getUser();
-
-	if($me_id){
-		$sql_owner = "SELECT * FROM `ownedbots` WHERE `owned_bot`='".$me_id."'";
-		$result_owner = mysqli_query($conn, $sql_owner);
-		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='".$me_id."'";
-		$result_habitat = mysqli_query($conn, $sql_habitat);
-		if(mysqli_num_rows($result_owner)>0){
-			header("Location: habitat.php");
-		}
-	}*/
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +9,11 @@
 <body>
         <div id="callback"><img src="assets_and_scenes/singular_singularitrons2_3.jpg" alt="singulatrons have arrived and the robots want companionship and to talk"></div>
         <script>
+		
+		$(document).ready(function(){
+			$("#emoteToggle").hide();
+			$("#emotes").hide();
+		});
                 function statusChangeCallback(response) {
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
@@ -168,23 +152,33 @@
 			//starter bots will need to have separate tables for their ids, or same table perhaps.
 			$("#next_starter").click(function(){
 				//
-                    if($("#starter_item img").attr("class")=="pseudo"){
-                           $("#starter_item img").attr("alt", "four hundred fifty power coins and one Connectotalx robot").attr("class", "connect").attr("src", "assets_and_scenes/connectPack.png").fadeIn();
+                if($("#starter_item img").attr("class")=="pseudo"){
+                       $("#starter_item img").attr("alt", "four hundred fifty power coins and one Connectotalx robot").attr("class","connect").attr("src", "assets_and_scenes/connectPack.png").fadeIn();
 						   $("#welcome").html('<p>Connectotalx repeats anything it hears<br>except for common cursewords.</p>');
-                    }
-                    else if($("#starter_item img").attr("class")=="connect"){
-                           $("#starter_item img").attr("alt", "five hundred power coins and one Molly bot").attr("class", "molly").attr("src", "assets_and_scenes/mollyPack.png").fadeIn();
-						   $("#welcome").html("<p>Mollybot doesn't learn,<br>but switches personalities.</p>");
-                    }
-                    else if($("#starter_item img").attr("class")=="molly"){
-                           $("#starter_item img").attr("alt", "eight hundred power coins and one Clever Fred robot").attr("class", "fred").attr("src", "assets_and_scenes/fredPack.png").fadeIn();
-							$("#welcome").html('<p>Clever Fred tries to tell jokes.</p>');
-                    }
-                    else {
-                           $("#starter_item img").attr("alt", "seven hundred power coins and one pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/pseudobotPack.png").fadeIn();
-						   $("#welcome").html('<p>Pseudobot speaks by checking to what degree<br>a word represents something.</p>');
-                    }
+                }
+                else if($("#starter_item img").attr("class")=="connect"){
+                       $("#starter_item img").attr("alt", "five hundred power coins and one Molly bot").attr("class", "molly").attr("src", "assets_and_scenes/mollyPack.png").fadeIn();
+					$("#welcome").html("<p>Mollybot doesn't learn,<br>but switches personalities.</p>");
+                }
+                else if($("#starter_item img").attr("class")=="molly"){
+                       $("#starter_item img").attr("alt", "eight hundred power coins and one Clever Fred robot").attr("class", "fred").attr("src", "assets_and_scenes/fredPack.png").fadeIn();
+					$("#welcome").html('<p>Clever Fred tries to tell jokes.</p>');
+                }
+                else {
+                    $("#starter_item img").attr("alt", "seven hundred power coins and one pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/pseudobotPack.png").fadeIn();
+					$("#welcome").html('<p>Pseudobot speaks by checking to what degree<br>a word represents something.</p>');
+                }
             });
+			$("#emoteToggle").click(function(){
+				if(("#testEmotes").val()=="0"){
+					$("#emotes").show();
+					$("#testEmotes").val("1");
+				}
+				else {
+					$("emotes").hide();
+					$("#testEmotes").val("0")
+				}
+			});
         });//take care of the conditionals in the php script	
 	});
 }	
@@ -196,6 +190,18 @@
                        left: 30px;
                        top: 100px;
                }
+			   #emoteToggle {
+					postion:absolute;
+					top:390px;
+					left:0;
+					width:745px;
+			   }
+			   #emotes {
+					top:435px;
+					left:0;
+					width:745px;
+					background-color:white;
+			   }
                #buttonDiv {
                        background-color: cyan;
                        position: absolute;
@@ -203,6 +209,7 @@
                        top: 345px;
                        }
 				#starter_item, #starter_habitat {
+						position: absolute;
 						top:110px;
                                }
                        #starter_item {
@@ -212,25 +219,25 @@
                                left:295px;
                        }
 				#starter_buttons, #starter_habitat_buttons {
+						position: absolute;
 						top:270px;
 				}
                #starter_buttons {
 					left:435px;
                }
                #starter_habitat_buttons {
-                    left:295px;
+                               left:295px;
                }
                button {
-                   padding:6px;
-				   position:absolute;
+                       padding:6px;
                }
-			   #language_buttons {
-					left:190px;
-					top:382px;
-			   }
         </style>
         
         <div id="buttonDiv"><button id="login_button">Login</button></div>
+		<div id="emotes">test</div>
+		<input id="testEmotes" name="testEmotes" value="0" type="hidden"/>
+		<div id="attr">Some icons in this game were created by Aha-Soft: <a href="http://www.softicons.com/game-icons/free-game-icons-by-aha-soft">See here</a>
+		<br>And some created by Icons-Land: <a href="http://www.icons-land.com">See here</a></div>
         <fb:comments href="https://www.intelligent-ecards.com/game/comments" numposts="7" colorscheme="light">
        </fb:comments>
         <div id='apiDiv'></div>
