@@ -87,6 +87,11 @@
 				//if (apiDiv_content == ""){
 					document.getElementById('callback').innerHTML=data;
 				//}
+			$("#sentence_text").keyup(function(){
+				$.getScript("js/insertSentence.js");
+			});
+			$("#submitSentence").click(function(){
+			});
 			$("#select_habitat").click(function(){
 						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
@@ -169,15 +174,8 @@
 					$("#welcome").html('<p>Pseudobot speaks by checking to what degree<br>a word represents something.</p>');
                 }
             });
-			$("#emoteToggle").click(function(){
-				if(("#testEmotes").val()=="0"){
-					$("#emotes").show();
-					$("#testEmotes").val("1");
-				}
-				else {
-					$("emotes").hide();
-					$("#testEmotes").val("0")
-				}
+			$("#emoteToggle").click(function() {
+				$("#emotes").toggle("slow");
 			});
         });//take care of the conditionals in the php script	
 	});
@@ -195,6 +193,19 @@
 					top:390px;
 					left:0;
 					width:745px;
+			   }
+			   #sentence_text {
+					position:absolute;
+					top:300px:
+					left:0;
+					width:450px;
+			   }
+			   #sentence_label {
+					position:absolute;
+					top:250px:
+					left:0;
+					width:450px;
+					height:120px;
 			   }
 			   #emotes {
 					top:435px;
@@ -234,7 +245,88 @@
         </style>
         
         <div id="buttonDiv"><button id="login_button">Login</button></div>
-		<div id="emotes">test</div>
+		<div id="emotes"><table cellpadding="5">
+			<tr>
+				<td>General icons</td>
+				<td><img src="icons/caution.png" alt="caution"><br>/caution</td>
+				<td><img src="icons/heart.png" alt="heart"><br>/heart</td>
+				<td><img src="icons/inside.png" alt="inside"><br>/inside</td>
+				<td><img src="icons/outside.png" alt="outside"><br>/outside</td>
+				<td><img src="icons/musical_note.png" alt="music"><br>/music</td>
+				<td><img src="icons/shamrock.png" alt="shamrock"><br>/shamrock</td>
+			</tr>
+			<tr>
+				<td><img src="icons/redo.png" alt="redo"><br>/redo</td>
+				<td><img src="icons/undo.png" alt="undo"><br>/undo</td>
+				<td><img src="icons/star.png" alt="star"><br>/star</td>
+				<td><img src="icons/touch_phone.png" alt="phone"><br>/phone</td>
+				<td><img src="icons/waiting.png" alt="time"><br>/time</td>
+				<td><img src="icons/wider.png" alt="wider"><br>/wider</td>
+				<td><img src="icons/taller.png" alt="taller"><br>/taller</td>
+			</tr>
+			<tr>
+				<td>Weather icons</td>
+				<td><img src="icons/ice.png" alt="ice"><br>/ice</td>
+				<td><img src="icons/overcast.png" alt="clouds"><br>/clouds</td>
+				<td><img src="icons/rainbow.png" alt="rainbow"><br>/rainbow</td>
+				<td><img src="icons/sunny.png" alt="sun"><br>/sun</td>
+				<td><img src="icons/fire.png" alt="fire"><br>/fire</td>
+			</tr>
+			<tr>
+				<td>Emotes</td>
+				<td><img src="icons/afraid.png" alt="afraid"><br>/afraid</td>
+				<td><img src="icons/happy.png" alt="happy"><br>/happy</td>
+				<td><img src="icons/delighted.png" alt="delighted"><br>/delighted</td>
+				<td><img src="icons/disgusted.png" alt="disgusted"><br>/disgusted</td>
+				<td><img src="icons/angry.png" alt="angry"><br>/angry</td>
+				<td><img src="icons/confused.png" alt="confused"><br>/confused</td>
+			</tr>
+			<tr>
+				<td><img src="icons/miserable.png" alt="miserable"><br>/miserable</td>
+				<td><img src="icons/surprised.png" alt="surprised"><br>/surprised</td>
+				<td><img src="icons/sad.png" alt="sad"><br>/sad</td>
+			</tr>
+			<tr>
+				<td>Animals</td>
+				<td><img src="icons/bird_contour.png" alt="bird"><br>/bird</td>
+				<td><img src="icons/bull_contour.png" alt="bull"><br>/bull</td>
+				<td><img src="icons/cat_contour.png" alt="cat"><br>/cat</td>
+				<td><img src="icons/cow_contour.png" alt="cow"><br>/cow</td>
+				<td><img src="icons/duck_contour.png" alt="duck"><br>/duck</td>
+			</tr>
+			<tr>
+				<td><img src="icons/elephant_contour.png" alt="elephant"><br>/elephant</td>
+				<td><img src="icons/fish_contour.png" alt="fish"><br>/fish</td>
+				<td><img src="icons/horse_contour.png" alt="horse"><br>/horse</td>
+				<td><img src="icons/ladybug_contour.png" alt="ladybug"><br>/ladybug</td>
+				<td><img src="icons/leopard_contour.png" alt="leopard"><br>/leopard</td>
+				<td><img src="icons/lion_contour.png" alt="lion"><br>/lion</td>
+			</tr>
+			<tr>
+				<!-- commenting a few out 
+				<td><img src="icons/lobster_contour.png" alt="lobster"></td>
+				<td><img src="icons/rabbit_contour.png" alt="rabbit"></td>
+				<td><img src="icons/snail_contour.png" alt="snail"></td> -->
+				<td><img src="icons/turtle_contour.png" alt="turtle"><br>/turtle</td>
+			</tr>
+			<tr>
+				<td>Numbers</td>
+				<td><img src="icons/zero.png" alt="zero"><br>/zero</td>
+				<td><img src="icons/one.png" alt="one"><br>/one</td>
+				<td><img src="icons/two.png" alt="two"><br>/two</td>
+				<td><img src="icons/three.png" alt="three"><br>/three</td>
+				<td><img src="icons/four.png" alt="four"><br>/four</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><img src="icons/five.png" alt="five"><br>/five</td>
+				<td><img src="icons/six.png" alt="six"><br>/six</td>
+				<td><img src="icons/seven.png" alt="seven"><br>/seven</td>
+				<td><img src="icons/eight.png" alt="eight"><br>/eight</td>
+				<td><img src="icons/nine.png" alt="nine"><br>/nine</td>
+			</tr>
+		</table>
+		</div>
 		<input id="testEmotes" name="testEmotes" value="0" type="hidden"/>
 		<div id="attr">Some icons in this game were created by Aha-Soft: <a href="http://www.softicons.com/game-icons/free-game-icons-by-aha-soft">See here</a>
 		<br>And some created by Icons-Land: <a href="http://www.icons-land.com">See here</a></div>
