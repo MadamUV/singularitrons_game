@@ -87,7 +87,7 @@
 				//if (apiDiv_content == ""){
 					document.getElementById('callback').innerHTML=data;
 				//}
-			$("#sentence_text").keyup(function(){
+			$("#sentence_text").keydown(function(){
 				var theSentence = $(this).val();
 				//replacement
 				//use a for loop
@@ -97,8 +97,96 @@
 				for(i=0; i<iconArray.length; i++){
 					theSentenceProcessed = theSentenceProcessed.replace(iconArray[i][0], iconArray[i][1]);
 				}
+				/*$.post("ProfanityFilter-develop/src/mofodojodino/ProfanityFilter/Check.php", {my_sentence : theSentenceProcessed}, function(data6){
+					$("#sentence").html(data6);
+				});*/
+				/*
+				|
+				|
+				|
+				|      Here we go......
+				|
+				|
+				|
+				|
+				|
+				|
+				var Check = {
+					var in_between_regex : /[\\s|\||!|@|#|\$|%|^|&|\*|\(|\)|\-|+|_|=|\{|\}|\[|\]|:|;|\'|\"|<|>|\?|,|\.|\/|~|`]/,
+					var badwords : [],
+										replacements : [
+					'á' : '(a|a\.|a\-|4|@|Á|á|À|Â|à|Â|â|Ä|ä|Ã|ã|Å|å|æ|Æ|α|Δ|Λ|λ)+{$}',
+					'a' : '(a|a\.|a\-|4|@|Á|á|À|Â|à|Â|â|Ä|ä|Ã|ã|Å|å|æ|Æ|α|Δ|Λ|λ)+{$}', //this will be used later to generate a regex
+					'b' : '(b|b\.|b\-|8|\|3|ß|Β|β)+{$}',                               // I think that {$} means "nothing"
+					'c' : '(c|c\.|c\-|Ç|ç|ć|Ć|č|Č|¢|€|<|\(|{|©)+{$}',
+					'd' : '(d|d\.|d\-|&part;|\|\)|Þ|þ|Ð|ð)+{$}',
+					'e' : '(e|e\.|e\-|3|€|È|è|É|é|Ê|ê|ë|Ë|ē|Ē|ė|Ė|ę|Ę|∑)+{$}',
+					'è' : '(e|e\.|e\-|3|€|È|è|É|é|Ê|ê|ë|Ë|ē|Ē|ė|Ė|ę|Ę|∑)+{$}',
+					'é' : '(e|e\.|e\-|3|€|È|è|É|é|Ê|ê|ë|Ë|ē|Ē|ė|Ė|ę|Ę|∑)+{$}',
+					'f' : '(f|f\.|f\-|ƒ)+{$}',
+					'g' : '(g|g\.|g\-|6|9)+{$}',
+					'h' : '(h|h\.|h\-|Η)+{$}',
+					'í' : '(i|i\.|i\-|!|\||\]\[|]|1|∫|Ì|Í|Î|Ï|ì|í|î|ï|ī|Ī|į|Į)+{$}',
+					'i' : '(i|i\.|i\-|!|\||\]\[|]|1|∫|Ì|Í|Î|Ï|ì|í|î|ï|ī|Ī|į|Į)+{$}',
+					'j' : '(j|j\.|j\-)+{$}',
+					'k' : '(k|k\.|k\-|Κ|κ)+{$}',
+					'l' : '(l|1\.|l\-|!|\||\]\[|]|£|∫|Ì|Í|Î|Ï|ł|Ł)+{$}',
+					'm' : '(m|m\.|m\-)+{$}',
+					'n' : '(n|n\.|n\-|η|Ν|Π|ñ|Ñ|ń|Ń)+{$}',
+					'ñ' : '(n|n\.|n\-|η|Ν|Π|ñ|Ñ|ń|Ń)+{$}',
+					'ó' : '(o|o\.|o\-|0|Ο|ο|Φ|¤|°|ø|ô|Ô|ö|Ö|ò|Ò|ó|Ó|œ|Œ|ø|Ø|ō|Ō|õ|Õ)+{$}',
+					'o' : '(o|o\.|o\-|0|Ο|ο|Φ|¤|°|ø|ô|Ô|ö|Ö|ò|Ò|ó|Ó|œ|Œ|ø|Ø|ō|Ō|õ|Õ)+{$}',
+					'p' : '(p|p\.|p\-|ρ|Ρ|¶|þ)+{$}',
+					'q' : '(q|q\.|q\-)+{$}',
+					'r' : '(r|r\.|r\-|®)+{$}',
+					's' : '(s|s\.|s\-|5|\$|§|ß|Ś|ś|Š|š)+{$}',
+					't' : '(t|t\.|t\-|Τ|τ)+{$}',
+					'u' : '(u|u\.|u\-|υ|µ|û|ü|ù|ú|ū|Û|Ü|Ù|Ú|Ū)+{$}',
+					'ú' : '(u|u\.|u\-|υ|µ|û|ü|ù|ú|ū|Û|Ü|Ù|Ú|Ū)+{$}',
+					'v' : '(v|v\.|v\-|υ|ν)+{$}',
+					'w' : '(w|w\.|w\-|ω|ψ|Ψ)+{$}',
+					'x' : '(x|x\.|x\-|Χ|χ)+{$}',
+					'y' : '(y|y\.|y\-|¥|γ|ÿ|ý|Ÿ|Ý)+{$}',
+					'z' : '(z|z\.|z\-|Ζ|ž|Ž|ź|Ź|ż|Ż)+{$}'
+					],
+					function hasProfanity(string){
+						$.getJSON("ProfanityFilter-develop/badwords2.json", function(bad){
+							var badness = JSON.parse(bad);
+							var thebadlist = badness.badwords;
+							var badwords_arr = [];
+							var badnumber = thebadlist.length;
+							for(var i=0; i<badnumber; i++){
+								/*$badwords[ $i ] = '/' . preg_replace(
+									array_keys($this->replacements),
+									array_values($this->replacements),
+									$this->badwords[ $i ]                //a single word in the bad word list
+								) . '/i';
+								$badwords[ $i ] = str_replace('{$}', self::IN_BETWEEN_REGEX, $badwords[ $i ]);
+								
+								badwords_arr[i] = new RegExp('/' . thebadlist[i].replace(new RegExp(Object.keys(this.replacements).toString), new RegExp(Object.values(this.replacements).toString)) . '/i');
+								badwords_arr[i] = badwords_arr[i].replace(/{$}/, this.in_between_regex);
+							}
+							for(var key in badwords_arr)  {
+								var profanity = badwords_arr[key];
+								string = string.replace(profanity, "*****");
+							}
+						});
+						return string;
+					}*/
+					
+				//}
+				$.getJSON("ProfanityFilter-develop/badwords2.json", function(bad){
+					var badness = JSON.parse(bad);
+					var thebadlist = badness.badwords;
+					var badwords_arr = [];
+					var badnumber = thebadlist.length;
+					//var splitSentence = theSentenceProcessed.split(" ");
+					for(var i=0; i<badnumber; i++){
+						theSentenceProcessed = theSentenceProcessed.replace(badwords_arr[i], "****");
+					}
+				});
+				//use src attribute
 				$("#sentence").html(theSentenceProcessed);
-				//use src attribute 
 			});
 			$("#submitSentence").click(function(){
 				var sentence = $("#sentence").html();
