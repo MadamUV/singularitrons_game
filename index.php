@@ -1302,7 +1302,7 @@
 				var badnumber = thebadlist.length;
 				//var splitSentence = theSentenceProcessed.split(" ");
 				for(var i=0; i<badnumber; i++){
-					theSentenceProcessed = theSentenceProcessed.replace(/thebadlist[i]/ig, "****");
+					theSentenceProcessed = theSentenceProcessed.replace(thebadlist[i], "****");
 				}
 				//use src attribute
 				$("#sentence").html(theSentenceProcessed);
