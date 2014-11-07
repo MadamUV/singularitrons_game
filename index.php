@@ -175,6 +175,17 @@
 					}*/
 					
 				//}
+				var thebadlistSmall = [
+					"anal",
+					"arse",
+					"crap",
+					"bum", 
+					"fag", 
+					"homo", 
+					"pros",
+					"scat", 
+					"spac"
+				]
 				var thebadlist = [
 					"carajo", 
 					"maricón", 
@@ -250,12 +261,10 @@
 					"abuser", 
 					"alabama hotpocket", 
 					"alligatorbait", 
-					"anal", 
 					"analannie", 
 					"analsex", 
 					"anus", 
-					"areola", 
-					"arse", 
+					"areola",  
 					"arsebagger", 
 					"arsebandit", 
 					"arseblaster", 
@@ -330,15 +339,14 @@
 					"beastial", 
 					"beastiality", 
 					"beatoff", 
-					"beat-off", 
-					"beatyourmeat", 
+					"beat your meat", 
 					"bestial", 
 					"bestiality", 
 					"biatch", 
 					"bicurious", 
-					"big", 
+					"big parts", 
 					"bigbastard", 
-					"bigbutt", 
+					"big butt", 
 					"bitch", 
 					"bitcher", 
 					"bitches", 
@@ -347,7 +355,8 @@
 					"bitching", 
 					"bitchslap", 
 					"bitchy", 
-					"biteme", 
+					"biteme",
+					"bite me",
 					"blackout", 
 					"blow job", 
 					"blowjob", 
@@ -376,7 +385,6 @@
 					"bulldyke", 
 					"bullshit", 
 					"/bullshit", 
-					"bum", 
 					"bumblefuck", 
 					"bumfuck", 
 					"bungabunga", 
@@ -446,8 +454,7 @@
 					"copulate", 
 					"crackpipe", 
 					"crackwhore", 
-					"crack-whore", 
-					"crap", 
+					"crack-whore",  
 					"crappy", 
 					"crotchjockey", 
 					"crotchmonkey", 
@@ -530,7 +537,6 @@
 					"facefucker", 
 					"facist", 
 					"faeces", 
-					"fag", 
 					"fagging", 
 					"faggot", 
 					"fagot", 
@@ -686,7 +692,6 @@
 					"hobo", 
 					"hoes", 
 					"holestuffer", 
-					"homo", 
 					"homobangers", 
 					"honger", 
 					"honkers", 
@@ -978,8 +983,7 @@
 					"pornography", 
 					"pornprincess", 
 					"premature", 
-					"prickhead", 
-					"pros", 
+					"prickhead",  
 					"prostitute", 
 					"protestant", 
 					"pu55i", 
@@ -1035,7 +1039,6 @@
 					"satan", 
 					"satanic", 
 					"scag", 
-					"scat", 
 					"schlong", 
 					"screwyou", 
 					"screwtard", 
@@ -1144,8 +1147,7 @@
 					"sodomize", 
 					"sodomy", 
 					"sonofabitch", 
-					"sonofbitch", 
-					"spac", 
+					"sonofbitch",  
 					"spacca", 
 					"spaghettibender", 
 					"spaghettinigger", 
@@ -1301,8 +1303,145 @@
 				];			
 				var badnumber = thebadlist.length;
 				//var splitSentence = theSentenceProcessed.split(" ");
+				var superbadlist = [];
+				/*
+				'/á/' => '(a|a\.|a\-|4|@|Á|á|À|Â|à|Â|â|Ä|ä|Ã|ã|Å|å|æ|Æ|α|Δ|Λ|λ)+{$}',
+				'/a/' => '(á|a\.|a\-|4|@|Á|á|À|Â|à|Â|â|Ä|ä|Ã|ã|Å|å|æ|Æ|α|Δ|Λ|λ)+{$}', //this will be used later to generate a regex
+				'/b/' => '(b|b\.|b\-|8|\|3|ß|Β|β)+{$}',                               // I think that {$} means "nothing"
+				'/c/' => '(c|c\.|c\-|Ç|ç|ć|Ć|č|Č|¢|€|<|\(|{|©)+{$}',
+				'/d/' => '(d|d\.|d\-|&part;|\|\)|Þ|þ|Ð|ð)+{$}',
+				'/e/' => '(e|e\.|e\-|3|€|È|è|É|é|Ê|ê|ë|Ë|ē|Ē|ė|Ė|ę|Ę|∑)+{$}',
+				'/è/' => '(e|e\.|e\-|3|€|È|è|É|é|Ê|ê|ë|Ë|ē|Ē|ė|Ė|ę|Ę|∑)+{$}',
+				'/é/' => '(e|e\.|e\-|3|€|È|è|É|é|Ê|ê|ë|Ë|ē|Ē|ė|Ė|ę|Ę|∑)+{$}',
+				'/f/' => '(f|f\.|f\-|ƒ)+{$}',
+				'/g/' => '(g|g\.|g\-|6|9)+{$}',
+				'/h/' => '(h|h\.|h\-|Η)+{$}',
+				'/í/' => '(i|i\.|i\-|!|\||\]\[|]|1|∫|Ì|Í|Î|Ï|ì|í|î|ï|ī|Ī|į|Į)+{$}',
+				'/i/' => '(i|i\.|i\-|!|\||\]\[|]|1|∫|Ì|Í|Î|Ï|ì|í|î|ï|ī|Ī|į|Į)+{$}',
+				'/j/' => '(j|j\.|j\-)+{$}',
+				'/k/' => '(k|k\.|k\-|Κ|κ)+{$}',
+				'/l/' => '(l|1\.|l\-|!|\||\]\[|]|£|∫|Ì|Í|Î|Ï|ł|Ł)+{$}',
+				'/m/' => '(m|m\.|m\-)+{$}',
+				'/n/' => '(n|n\.|n\-|η|Ν|Π|ñ|Ñ|ń|Ń)+{$}',
+				'/ñ/' => '(n|n\.|n\-|η|Ν|Π|ñ|Ñ|ń|Ń)+{$}',
+				'/ó/' => '(o|o\.|o\-|0|Ο|ο|Φ|¤|°|ø|ô|Ô|ö|Ö|ò|Ò|ó|Ó|œ|Œ|ø|Ø|ō|Ō|õ|Õ)+{$}',
+				'/o/' => '(o|o\.|o\-|0|Ο|ο|Φ|¤|°|ø|ô|Ô|ö|Ö|ò|Ò|ó|Ó|œ|Œ|ø|Ø|ō|Ō|õ|Õ)+{$}',
+				'/p/' => '(p|p\.|p\-|ρ|Ρ|¶|þ)+{$}',
+				'/q/' => '(q|q\.|q\-)+{$}',
+				'/r/' => '(r|r\.|r\-|®)+{$}',
+				'/s/' => '(s|s\.|s\-|5|\$|§|ß|Ś|ś|Š|š)+{$}',
+				'/t/' => '(t|t\.|t\-|Τ|τ)+{$}',
+				'/u/' => '(u|u\.|u\-|υ|µ|û|ü|ù|ú|ū|Û|Ü|Ù|Ú|Ū)+{$}',
+				'/ú/' => '(u|u\.|u\-|υ|µ|û|ü|ù|ú|ū|Û|Ü|Ù|Ú|Ū)+{$}',
+				'/v/' => '(v|v\.|v\-|υ|ν)+{$}',
+				'/w/' => '(w|w\.|w\-|ω|ψ|Ψ)+{$}',
+				'/x/' => '(x|x\.|x\-|Χ|χ)+{$}',
+				'/y/' => '(y|y\.|y\-|¥|γ|ÿ|ý|Ÿ|Ý)+{$}',
+				'/z/' => '(z|z\.|z\-|Ζ|ž|Ž|ź|Ź|ż|Ż)+{$}',
+				);
+				*/
+				var a_letter = ["4", "@", "Á", "á", "À", "Â", "à", "Â", "â", "Ä", "ä", "Ã", "ã", "Å", "å", "æ", "Æ", "α", "Δ", "Λ", "λ"];
+				var b_letter = ["8", "3", "ß", "Β", "β"];
+				var c_letter = ["Ç", "ç", "ć", "Ć", "č", "Č", "¢", "€", "<", "(", "©"];
+				var d_letter = ["\)", "|)", "Þ", "þ", "Ð", "ð"];
+				var e_letter = ["3", "€", "È", "è", "É", "é", "Ê", "ê", "ë", "Ë", "ē", "Ē", "ė", "Ė", "ę", "Ę", "∑"];
+				var f_letter = ["ƒ"];
+				var g_letter = ["6", "9"];
+				var h_letter = ["Η", "ĥ", "ħ", "Ĥ", "Ħ", "ƕ", "ȟ", "Ҥ", "Ԋ", "ᴴ"];
+				var i_letter = ["i.", "i-", "!", "|", "]", "1", "∫", "Ì", "Í", "Î", "Ï", "ì", "í", "î", "ï", "ī", "Ī", "į", "Į"];
+				var k_letter = ["Κ", "κ"];
+				var n_letter = ["Ν", "Π", "ñ", "Ñ", "ń", "Ń"];
+				var o_letter = ["0", "Ο", "Φ", "¤", "°", "ø", "ô", "Ô", "ö", "Ö", "ò", "Ò", "ó", "Ó", "ø", "Ø", "ō", "Ō", "õ", "Õ"];
+				var p_letter = ["Ρ", "¶"];
+				var r_letter = ["®"];
+				var s_letter = ["$", "§", "ß", "Ś", "ś", "Š", "š"];
+				var t_letter = ["Τ", "τ"];
+				var u_letter = ["û", "ü", "ù", "ú", "ū", "Û", "Ü", "Ù", "Ú", "Ū"];
+				var v_letter = ["υ", "ν"];
+				var w_letter = ["ω", "ψ", "Ψ"];
+				var y_letter = ["¥", "γ", "ÿ", "ý", "Ÿ", "Ý"];
+				var z_letter = ["Ζ", "ž", "Ž", "ź", "Ź", "ż", "Ż"];
+				//
+				sentenceSplit = theSentenceProcessed.split(" ");
 				for(var i=0; i<badnumber; i++){
-					theSentenceProcessed = theSentenceProcessed.replace(thebadlist[i], "****");
+					/*  If at any point the replaced string matches the curseword contained in a word,
+						while replacing the replacements with the target letter; removing hyphens, asterisks,
+						tildes, and underscores; and finally, replacing vovels and n's with
+						accented with non accented and tilde n letters:
+						mark that word's place in the list of words in the original sentence and take appropriate action.
+					*/
+					for (var mm=0; mm<sentenceSplit.length; mm++){
+						sentenceSplitSplit = sentenceSplit[mm].split();
+						var f = [];
+						while (f === []){
+							for (var nn; nn<sentenceSplitSplit.length; nn++){
+								for (var a=0; a<a_letter.length; a++){
+									sentenceSplitSplit[nn].replace(a_letter[a], "a");
+								}
+								for (var b=0; b<b_letter.length; b++){
+									sentenceSplitSplit[nn].replace(b_letter[b], "b");
+								}
+								for (var c=0; c<c_letter.length; c++){
+									sentenceSplitSplit[nn].replace(c_letter[c], "c");
+								}
+								for (var d=0; d<d_letter.length; d++){
+									sentenceSplitSplit[nn].replace(d_letter[d], "d");
+								}
+								for (var e=0; e<e_letter.length; e++){
+									sentenceSplitSplit[nn].replace(e_letter[e], "e");
+								}
+								for (var f=0; f<f_letter.length; f++){
+									sentenceSplitSplit[nn].replace(f_letter[f], "f");
+								}
+								for (var g=0; g<a_letter.length; g++){
+									sentenceSplitSplit[nn].replace(g_letter[g], "g");
+								}
+								for (var h=0; h<a_letter.length; h++){
+									sentenceSplitSplit[nn].replace(h_letter[h], "h");
+								}
+								for (var i=0; i<a_letter.length; i++){
+									sentenceSplitSplit[nn].replace(i_letter[i], "i");
+								}
+								for (var k=0; k<a_letter.length; k++){
+									sentenceSplitSplit[nn].replace(k_letter[k], "k");
+								}
+								for (var n=0; n<a_letter.length; n++){
+									sentenceSplitSplit[nn].replace(n_letter[n], "n");
+								}
+								for (var o=0; o<a_letter.length; o++){
+									sentenceSplitSplit[nn].replace(o_letter[o], "o");
+								}
+								for (var p=0; p<a_letter.length; p++){
+									sentenceSplitSplit[nn].replace(p_letter[p], "p");
+								}
+								for (var r=0; r<a_letter.length; r++){
+									sentenceSplitSplit[nn].replace(r_letter[r], "r");
+								}
+								for (var s=0; s<a_letter.length; s++){
+									sentenceSplitSplit[nn].replace(s_letter[s], "s");
+								}
+								for (var t=0; t<a_letter.length; t++){
+									sentenceSplitSplit[nn].replace(t_letter[t], "t");
+								}
+								for (var u=0; u<a_letter.length; u++){
+									sentenceSplitSplit[nn].replace(u_letter[u], "u");
+								}
+								for (var v=0; v<a_letter.length; v++){
+									sentenceSplitSplit[nn].replace(v_letter[v], "v");
+								}
+								for (var w=0; w<a_letter.length; w++){
+									sentenceSplitSplit[nn].replace(w_letter[w], "w");
+								}
+								for (var y=0; y<a_letter.length; y++){
+									sentenceSplitSplit[nn].replace(y_letter[y], "y");
+								}
+								for (var z=0; z<a_letter.length; z++){
+									sentenceSplitSplit[nn].replace(z_letter[z], "z");
+								}
+							}
+						}
+					}
+					//theSentenceProcessed = theSentenceProcessed.replace(thebadlist[i], "****");
 				}
 				//use src attribute
 				$("#sentence").html(theSentenceProcessed);
