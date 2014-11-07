@@ -1362,87 +1362,99 @@
 				var y_letter = ["¥", "γ", "ÿ", "ý", "Ÿ", "Ý"];
 				var z_letter = ["Ζ", "ž", "Ž", "ź", "Ź", "ż", "Ż"];
 				//
-				sentenceSplit = theSentenceProcessed.split(" ");
-				for(var i=0; i<badnumber; i++){
+				var sentenceSplit = theSentenceProcessed.split(" ");
+				var oldSentenceSplit = theSentenceProcessed.split(" ");
+				var array_mm = [];
+				for(var ii=0; ii<badnumber; ii++){
 					/*  If at any point the replaced string matches the curseword contained in a word,
 						while replacing the replacements with the target letter; removing hyphens, asterisks,
 						tildes, and underscores; and finally, replacing vovels and n's with
 						accented with non accented and tilde n letters:
 						mark that word's place in the list of words in the original sentence and take appropriate action.
 					*/
+
 					for (var mm=0; mm<sentenceSplit.length; mm++){
 						sentenceSplitSplit = sentenceSplit[mm].split();
-						var f = [];
-						while (f === []){
-							for (var nn; nn<sentenceSplitSplit.length; nn++){
+							for (var nn=0; nn<sentenceSplitSplit.length; nn++){
 								for (var a=0; a<a_letter.length; a++){
-									sentenceSplitSplit[nn].replace(a_letter[a], "a");
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(a_letter[a], "a");
 								}
 								for (var b=0; b<b_letter.length; b++){
-									sentenceSplitSplit[nn].replace(b_letter[b], "b");
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(b_letter[b], "b");
 								}
 								for (var c=0; c<c_letter.length; c++){
-									sentenceSplitSplit[nn].replace(c_letter[c], "c");
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(c_letter[c], "c");
 								}
 								for (var d=0; d<d_letter.length; d++){
-									sentenceSplitSplit[nn].replace(d_letter[d], "d");
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(d_letter[d], "d");
 								}
 								for (var e=0; e<e_letter.length; e++){
-									sentenceSplitSplit[nn].replace(e_letter[e], "e");
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(e_letter[e], "e");
 								}
 								for (var f=0; f<f_letter.length; f++){
-									sentenceSplitSplit[nn].replace(f_letter[f], "f");
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(f_letter[f], "f");
 								}
-								for (var g=0; g<a_letter.length; g++){
-									sentenceSplitSplit[nn].replace(g_letter[g], "g");
+								for (var g=0; g<g_letter.length; g++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(g_letter[g], "g");
 								}
-								for (var h=0; h<a_letter.length; h++){
-									sentenceSplitSplit[nn].replace(h_letter[h], "h");
+								for (var h=0; h<h_letter.length; h++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(h_letter[h], "h");
 								}
-								for (var i=0; i<a_letter.length; i++){
-									sentenceSplitSplit[nn].replace(i_letter[i], "i");
+								for (var i=0; i<i_letter.length; i++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(i_letter[i], "i");
 								}
-								for (var k=0; k<a_letter.length; k++){
-									sentenceSplitSplit[nn].replace(k_letter[k], "k");
+								for (var k=0; k<k_letter.length; k++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(k_letter[k], "k");
 								}
-								for (var n=0; n<a_letter.length; n++){
-									sentenceSplitSplit[nn].replace(n_letter[n], "n");
+								for (var n=0; n<n_letter.length; n++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(n_letter[n], "n");
 								}
-								for (var o=0; o<a_letter.length; o++){
-									sentenceSplitSplit[nn].replace(o_letter[o], "o");
+								for (var o=0; o<o_letter.length; o++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(o_letter[o], "o");
 								}
-								for (var p=0; p<a_letter.length; p++){
-									sentenceSplitSplit[nn].replace(p_letter[p], "p");
+								for (var p=0; p<p_letter.length; p++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(p_letter[p], "p");
 								}
-								for (var r=0; r<a_letter.length; r++){
-									sentenceSplitSplit[nn].replace(r_letter[r], "r");
+								for (var r=0; r<r_letter.length; r++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(r_letter[r], "r");
 								}
-								for (var s=0; s<a_letter.length; s++){
-									sentenceSplitSplit[nn].replace(s_letter[s], "s");
+								for (var s=0; s<s_letter.length; s++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(s_letter[s], "s");
 								}
-								for (var t=0; t<a_letter.length; t++){
-									sentenceSplitSplit[nn].replace(t_letter[t], "t");
+								for (var t=0; t<t_letter.length; t++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(t_letter[t], "t");
 								}
-								for (var u=0; u<a_letter.length; u++){
-									sentenceSplitSplit[nn].replace(u_letter[u], "u");
+								for (var u=0; u<u_letter.length; u++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(u_letter[u], "u");
 								}
-								for (var v=0; v<a_letter.length; v++){
-									sentenceSplitSplit[nn].replace(v_letter[v], "v");
+								for (var v=0; v<v_letter.length; v++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(v_letter[v], "v");
 								}
-								for (var w=0; w<a_letter.length; w++){
-									sentenceSplitSplit[nn].replace(w_letter[w], "w");
+								for (var w=0; w<w_letter.length; w++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(w_letter[w], "w");
 								}
-								for (var y=0; y<a_letter.length; y++){
-									sentenceSplitSplit[nn].replace(y_letter[y], "y");
+								for (var y=0; y<y_letter.length; y++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(y_letter[y], "y");
 								}
-								for (var z=0; z<a_letter.length; z++){
-									sentenceSplitSplit[nn].replace(z_letter[z], "z");
+								for (var z=0; z<z_letter.length; z++){
+									sentenceSplitSplit[nn] = sentenceSplitSplit[nn].replace(z_letter[z], "z");
 								}
 							}
-						}
-					}
+							sentenceSplit[mm] = sentenceSplitSplit;
+							sentenceSplit[mm] = sentenceSplit[mm].replace(/_/g, "");
+							sentenceSplit[mm] = sentenceSplit[mm].replace(/-/g, "");
+							sentenceSplit[mm] = sentenceSplit[mm].replace(/\*/g, "");
+							sentenceSplit[mm] = sentenceSplit[mm].replace(/~/g, "");
+							if (sentenceSplit[mm].indexOf(thebadlist[ii]) !== -1) {
+								array_mm.push(mm);
+							}
 					//theSentenceProcessed = theSentenceProcessed.replace(thebadlist[i], "****");
+					}
 				}
+				for (qq=0; qq<array_mm.length; qq++){
+					oldSentenceSplit[array_mm[qq]] = "****";
+				}
+				theSentenceProcessed = oldSentenceSplit.join(" ");
 				//use src attribute
 				$("#sentence").html(theSentenceProcessed);
 			});
