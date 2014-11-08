@@ -406,6 +406,7 @@ if (isset($_POST['my_sentence'])) {
 			$comment = str_ireplace($word, addStars($word), $comment);
 		}
 	}
+		$comment = str_ireplace("h**lo", "hello", $comment);
 		return $comment;
 	}
 	
