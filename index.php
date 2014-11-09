@@ -100,9 +100,12 @@
 				$.post("php_post/new_bad_words_script.php", {my_sentence : theSentenceProcessed}, function(bads){
 					$("#sentence").html(bads);
 				});
+				$.post("php_post/new_bad_words_script.php", {my_sentence : theSentence}, function(bads){
+					$("#sentence2").val(bads);
+				});
 			});
 			$("#submitSentence").click(function(){
-				var sentence = $("#sentence").val();
+				var sentence = $("#sentence2").val();
 				$.post("php_post/comb.php", {comb : sentence, me_id : me_id}, function(combing){
 					$("#sentence").html(combing);
 				});
@@ -345,5 +348,6 @@
         <fb:comments href="https://www.intelligent-ecards.com/game/comments" numposts="7" colorscheme="light">
        </fb:comments>
         <div id='apiDiv'></div>
+		<input id="sentence2" name="sentence2" type="hidden" />
 </body>
 </html>
