@@ -5,28 +5,29 @@ if (isset($_POST['comb'])) {
 		include '../php_extras/connect.php';
 		$comb_original = $_POST['comb'];
 		//either way I have to export to JSON
-		$check_against = array("/caution" => '<img src="icons/caution.png" alt="caution">', "/heart" => '<img src="icons/heart.png" alt="heart">', "/inside" => '<img src="icons/inside.png" alt="inside">', "/music" => '<img src="icons/musical_note.png" alt="music">', "/shamrock" => '<img src="icons/shamrock.png" alt="shamrock">', "/redo" => '<img src="icons/redo.png" alt="redo">', "/undo" => '<img src="icons/undo.png" alt="undo">', "/star" => '<img src="icons/star.png" alt="star">', "/phone" => '<img src="phone/caution.png" alt="phone">', "/time" => '<img src="icons/waiting.png" alt="time">', "/wider" => '<img src="icons/wider.png" alt="wider">', "/taller" => '<img src="icons/taller.png" alt="taller">', "/ice" => '<img src="icons/Ice.png" alt="ice">',  "clouds" => '<img src="icons/Overcast.png" alt="clouds">', "/rainbow" => '<img src="icons/Rainbow.png" alt="rainbow">', "/sun" => '<img src="icons/Sunny.png" alt="sun">', "/fire" => '<img src="icons/fire.png" alt="fire">', "/afraid" => '<img src="icons/afraid.png" alt="afraid">', "/happy" => '<img src="icons/happy.png" alt="happy">', "/delighted" => '<img src="icons/delighted.png" alt="delighted">', "/disgusted" => '<img src="icons/disgusted.png" alt="disgusted">', "/angry" => '<img src="icons/angry.png" alt="angry">', "/confused" => '<img src="icons/confused.png" alt="confused">', "/bird" => '<img src="icons/bird_contour.png" alt="bird">', "/bull" => '<img src="icons/bull_contour.png" alt="bull">', "/cat" => '<img src="icons/cat_contour.png" alt="cat">', "/cow" => '<img src="icons/cow_contour.png" alt="cow">', "/duck" => '<img src="icons/duck_contour.png" alt="duck">', "/elephant" => '<img src="icons/elephant_contour.png" alt="elephant">', "/fish" => '<img src="icons/fish_contour.png" alt="fish">', "/horse" => '<img src="icons/horse_contour.png" alt="horse">', "/ladybug" => '<img src="icons/ladybug_contour.png" alt="ladybug">', "/leopard" => '<img src="icons/leopard_contour.png" alt="leopard">', "/lion" => '<img src="icons/lion_contour.png" alt="lion">', "/zero" => '<img src="icons/zero.png" alt="zero">', "/one" => '<img src="icons/one.png" alt="one">', "/two" => '<img src="icons/two.png" alt="two">', "/three" => '<img src="icons/three.png" alt="three">', "/four" => '<img src="icons/four.png" alt="four">', "/five" => '<img src="icons/five.png" alt="five">', "/six" => '<img src="icons/six.png" alt="six">', "/seven" => '<img src="icons/seven.png" alt="seven">', "/eight" => '<img src="icons/eight.png" alt="eight">', "/nine" => '<img src="icons/nine.png" alt="nine">', "/miserable" => '<img src="icons/miserable.png" alt="miserable">', "/surprised" => '<img src= "icons/surprised.png" alt="surprised">', "/outside" => '<img src="icons/outside.png" alt="outside">', "/sad" => '<img src="icons/sad.png" alt="sad">');
+		$check_against = array("/caution" => '<img src="icons/caution.png" alt="caution">', "/heart" => '<img src="icons/heart.png" alt="heart">', "/inside" => '<img src="icons/inside.png" alt="inside">', "/music" => '<img src="icons/musical_note.png" alt="music">', "/shamrock" => '<img src="icons/shamrock.png" alt="shamrock">', "/redo" => '<img src="icons/redo.png" alt="redo">', "/undo" => '<img src="icons/undo.png" alt="undo">', "/star" => '<img src="icons/star.png" alt="star">', "/phone" => '<img src="phone/caution.png" alt="phone">', "/time" => '<img src="icons/waiting.png" alt="time">', "/wider" => '<img src="icons/wider.png" alt="wider">', "/taller" => '<img src="icons/taller.png" alt="taller">', "/ice" => '<img src="icons/Ice.png" alt="ice">', "clouds" => '<img src="icons/Overcast.png" alt="clouds">', "/rainbow" => '<img src="icons/Rainbow.png" alt="rainbow">', "/sun" => '<img src="icons/Sunny.png" alt="sun">', "/fire" => '<img src="icons/fire.png" alt="fire">', "/afraid" => '<img src="icons/afraid.png" alt="afraid">', "/happy" => '<img src="icons/happy.png" alt="happy">', "/delighted" => '<img src="icons/delighted.png" alt="delighted">', "/disgusted" => '<img src="icons/disgusted.png" alt="disgusted">', "/angry" => '<img src="icons/angry.png" alt="angry">', "/confused" => '<img src="icons/confused.png" alt="confused">', "/bird" => '<img src="icons/bird_contour.png" alt="bird">', "/bull" => '<img src="icons/bull_contour.png" alt="bull">', "/cat" => '<img src="icons/cat_contour.png" alt="cat">', "/cow" => '<img src="icons/cow_contour.png" alt="cow">', "/duck" => '<img src="icons/duck_contour.png" alt="duck">', "/elephant" => '<img src="icons/elephant_contour.png" alt="elephant">', "/fish" => '<img src="icons/fish_contour.png" alt="fish">', "/horse" => '<img src="icons/horse_contour.png" alt="horse">', "/ladybug" => '<img src="icons/ladybug_contour.png" alt="ladybug">', "/leopard" => '<img src="icons/leopard_contour.png" alt="leopard">', "/lion" => '<img src="icons/lion_contour.png" alt="lion">', "/zero" => '<img src="icons/zero.png" alt="zero">', "/one" => '<img src="icons/one.png" alt="one">', "/two" => '<img src="icons/two.png" alt="two">', "/three" => '<img src="icons/three.png" alt="three">', "/four" => '<img src="icons/four.png" alt="four">', "/five" => '<img src="icons/five.png" alt="five">', "/six" => '<img src="icons/six.png" alt="six">', "/seven" => '<img src="icons/seven.png" alt="seven">', "/eight" => '<img src="icons/eight.png" alt="eight">', "/nine" => '<img src="icons/nine.png" alt="nine">', "/miserable" => '<img src="icons/miserable.png" alt="miserable">', "/surprised" => '<img src= "icons/surprised.png" alt="surprised">', "/outside" => '<img src="icons/outside.png" alt="outside">', "/sad" => '<img src="icons/sad.png" alt="sad">');
 		$comb_unoriginal = $comb_original;
-		$icons_written = array();
+		/*
 		//replace the image sources with the word they represent, preceded by a backslash.
 		foreach($check_against as $key => $value) {
 			$comb_unoriginal = str_replace($value, " " . $key . " ", $comb_unoriginal);
 		}
-		//remove extra spaces
+		//remove extra spaces*/
 		$comb_unoriginal = preg_replace("/\s+/", " ", $comb_unoriginal);
 		//convert apostrophes and quotes
 		$remove_punctuation = array("'", '"');
 		$comb_unoriginal = str_replace($remove_punctuation, "\"", $comb_unoriginal);
-		$comb1 = explode(" ", $comb_unoriginal);
-		$keys = array_keys($check_against);
-                //
-                //
-                //
-                foreach($keys as $key) {
-				if(strpos($comb1[$m], $key) != false) {
-					array_push($icons_written, $key);
-				}
+		foreach($check_against as $key => $value) {
+			if(strpos($comb_unoriginal, $value) != false){
+				$comb_unoriginal = str_replace($value, $key, $comb_unoriginal); //replaced directly from $comb_unoriginal instead of $comb1
+				$icons_written = $key;
 			}
+		}
+		$comb1 = explode(" ", $comb_unoriginal);
+		print_r($comb1);
+                //
+                //
+                //
                 
                 function combinations($input_array) {
                 if(count($input_array)!==0) {
@@ -228,21 +229,15 @@ if (isset($_POST['comb'])) {
             return $main_array;
         }
 			$the_array = combinations($comb1);
-                foreach ($the_array as $combinations_for_table){
-					foreach ($combinations_for_table as $realcombo){
-						$encode = json_encode($realcombo);
-						print_r ($realcombo);
-						if(count($icons_written)>0){
-							foreach ($icons_written as $the_icons){
-								$sql = "INSERT INTO json_additions (addition, icons) VALUES ('" . $encode . "', '" . $the_icons . "')";
-								mysqli_query($conn, $sql);
-							 
-							}
-						}
-						else {
-							$sql = "INSERT INTO json_additions (addition, icons) VALUES ('" . $encode . "', 'none')";
-							mysqli_query($conn, $sql);
-						}
+				foreach ($the_array as $combinations_for_table){
+					$encode = json_encode($combinations_for_table);
+					if(count($icons_written)>0){
+						$sql = "INSERT INTO json_additions (addition, icons) VALUES ('" . $encode . "', '" . $icons_written . "')";
+						mysqli_query($conn, $sql);
+					}
+					else {
+						$sql = "INSERT INTO json_additions (addition, icons) VALUES ('" . $encode . "', 'none')";
+						mysqli_query($conn, $sql);
 					}
                 }
 				
