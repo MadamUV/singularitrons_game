@@ -2,6 +2,11 @@
 
 if (isset($_POST['my_sentence'])) {
 
+	// the following segment is by Jozef Jaroščiak: https://www.linkedin.com/in/jozefj
+	function addStars($word) {
+	$length = strlen($word);
+	return substr($word, 0, 1) . str_repeat("*", $length - 2) . substr($word, $length - 1, 1);
+	}
 	function ReplaceBadWords($comment){
 	$wordlist = "@$$,13?,2 girls 1 cup,2g1c,3p,4r5e,5h1t,5hit,a_s_s,a55,aardappels afgieteng,aborto,achter het 
 
@@ -289,7 +294,7 @@ if (isset($_POST['my_sentence'])) {
 
 	ku'evo,poeben,poep,poepen,poilu,po'imat' na konchik,po'iti posrat,polac,polack,polak,pole 
 
-	smoker,poluchit pizdy,pomiciare,pompa,pompino,ponyplay,poof,Poonani,poontsee,poop,poop 
+	smoker,poluchit pizdy,pomiciare,pompa,pompino,ponyplay,poof,Poonani,poontsee,poop 
 
 	chute,poopchute,poot,popel,poppen,porca,porca madonna,porca miseria,porca puttana,porco 
 
@@ -398,21 +403,17 @@ if (isset($_POST['my_sentence'])) {
 	showers,yiffy,zaadje,zabourah,za'ebat,zaebis,zakkenwasser,zalupa,zalupat,zasranetc,zassat,zeiken
 
 	,zeiker,zinne,zio cantante,zlo'ebuchy,zoccola,zoophilia,zuigen,zuiplap";
-	
-	$words = explode(",", $wordlist);
-	$comment_lower = strtolower($comment);
-	foreach($words as $word){
-		if(strpos($comment_lower, $word) !== false){
-			$comment = str_ireplace($word, addStars($word), $comment);
+
+	// end segment.
+		$words = explode(",", $wordlist);
+		$comment_lower = strtolower($comment);
+		foreach($words as $word){
+			if(strpos($comment_lower, $word) !== false){
+				$comment = str_ireplace($word, addStars($word), $comment);
+			}
 		}
-	}
 		$comment = str_ireplace("h**lo", "hello", $comment);
 		return $comment;
-	}
-	
-	function addStars($word) {
-	$length = strlen($word);
-	return substr($word, 0, 1) . str_repeat("*", $length - 2) . substr($word, $length - 1, 1);
 	}
 	$my_sentence = $_POST['my_sentence'];
 	echo ReplaceBadWords($my_sentence);
