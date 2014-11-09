@@ -228,6 +228,14 @@ if (isset($_POST['comb'])) {
 			}
             return $main_array;
         }
+		/*
+			Make sure at some point to separate one robot's json from another
+			And sell coins to buy robots that can listen to sentence that are 20 to 30 words long
+			Robots can't interact with each other in the same room. Have user pick which robot to talk to on login.
+			Robots must be named. The name in combination with the Facebook user id key will identify the robot.
+			No two robots belonging to anyonne can have the same name. If a name is taken, popup an alert.
+			Bot name should not exceed 20 characters.
+		*/
 			$the_array = combinations($comb1);
 				foreach ($the_array as $combinations_for_table){
 					$encode = json_encode($combinations_for_table);
