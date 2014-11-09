@@ -87,7 +87,7 @@
 				//if (apiDiv_content == ""){
 					document.getElementById('callback').innerHTML=data;
 				//}
-			$("#sentence_text").keydown(function(){
+			$("#sentence_text").keyup(function(){
 				var theSentence = $(this).val();
 				//replacement
 				//use a for loop
@@ -102,9 +102,9 @@
 				});
 			});
 			$("#submitSentence").click(function(){
-				var sentence = $("#sentence").html();
-				$.post("ProfanityFilter-develop/src/mofodojodino/ProfanityFilter/Check.php", {my_sentence : sentence}, function(data){
-					$("#sentence").html(data);
+				var sentence = $("#sentence").val();
+				$.post("php_post/comb.php", {comb : sentence, me_id : me_id}, function(combing){
+					$("#sentence").html(combing);
 				});
 			});
 			$("#select_habitat").click(function(){
