@@ -9,6 +9,7 @@
 		$result_owner = mysqli_query($conn, $sql_owner);
 		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='" . $me_id . "'";
 		$result_habitat = mysqli_query($conn, $sql_habitat);
+		$emoteToggleSentence = '<label for="sentence_text" id="sentence_label">Say something: <input name="sentence_text" id="sentence_text" type="text"/></label><button id="submitSentence">Submit sentence</button><button id="emoteToggle">Show emote window</button><br><div id="robots"></div><div id="sentence"></div>';
 		//conditionals begin
 		if(mysqli_num_rows($result1)==0 && isset($_POST['me_firstname'])){
         	$me_firstname = $_POST['me_firstname'];
@@ -61,16 +62,16 @@
 							while ($row_habitat = mysqli_fetch_assoc($result_habitat)) {
 						if($row_habitat["yes_no"]=="yes"){
 							if($row_habitat["habitat"]=="spaceship"){
-								echo '<img src="assets_and_scenes/singular_spaceship_time.gif" alt="spaceship with flaming exhaust"><div id="robots"></div>';
+								echo '<img src="assets_and_scenes/singular_spaceship_time.gif" alt="spaceship with flaming exhaust">' . $emoteToggleSentence;
 							}
 							else if($row_habitat["habitat"]=="backyard"){
-								echo '<img src="assets_and_scenes/singular_backyard.gif" alt="green grassy backyard"><div id="robots"></div>';
+								echo '<img src="assets_and_scenes/singular_backyard.gif" alt="green grassy backyard">' . $emoteToggleSentence;
 							}
 							else if($row_habitat["habitat"]=="city"){
-								echo '<img src="assets_and_scenes/singularitrons_roadway3.png" alt="busy city with window lights"><div id="robots"></div>';
+								echo '<img src="assets_and_scenes/singularitrons_roadway3.png" alt="busy city with window lights">' . $emoteToggleSentence;
 							}
 							else if($row_habitat["habitat"]=="lab"){
-								echo '<img src="assets_and_scenes/singularitrons_mad_science.gif" alt="green grassy backyard"><div id="robots"></div>';
+								echo '<img src="assets_and_scenes/singularitrons_mad_science.gif" alt="green grassy backyard">' . $emoteToggleSentence;
 							}
 						}
 					}
@@ -81,7 +82,6 @@
 			//load main game
 			while ($row_habitat = mysqli_fetch_assoc($result_habitat)) {
 				if($row_habitat["yes_no"]=="yes"){
-					$emoteToggleSentence = '<label for="sentence_text" id="sentence_label">Say something: <input name="sentence_text" id="sentence_text" type="text"/></label><button id="submitSentence">Submit sentence</button><button id="emoteToggle">Show emote window</button><br><div id="robots"></div><div id="sentence"></div>';
 					if($row_habitat["habitat"]=="spaceship"){
 						echo '<img src="assets_and_scenes/singular_spaceship_time.gif" alt="spaceship with flaming exhaust">' . $emoteToggleSentence;
 					}
