@@ -11,7 +11,6 @@
         <script>
 		
 		$(document).ready(function(){
-			$("#emoteToggle").hide();
 			$("#emotes").hide();
 		});
                 function statusChangeCallback(response) {
@@ -110,9 +109,6 @@
 			$("#select_habitat").click(function(){
 						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
-							$("#emoteToggle").show();
-							$("#sentence").show();
-							$("#sentence_text").show();
 							document.getElementById('callback').innerHTML=data3;
 						});
 						
@@ -155,9 +151,6 @@
 								var starter_habitat = $("#starter_habitat img").attr("class");
 									$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 										document.getElementById('callback').innerHTML=data3; //code is repeating; add functions
-										$("#emoteToggle").show();
-										$("#sentence").show();
-										$("#sentence_text").show();
 									});
 								});
 								$("#next_habitat").click(function(){
@@ -193,9 +186,6 @@
 					var starter_habitat = $("#starter_habitat img").attr("class");
 					$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 						document.getElementById('callback').innerHTML=data3;
-						$("#emoteToggle").show();
-						$("#sentence").show();
-						$("#sentence_text").show();
 					});
 				});
 					$("#next_habitat").click(function(){
