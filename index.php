@@ -102,7 +102,7 @@
 				});
 			});
 			$("#submitSentence").click(function(){
-				var sentence = $("#sentence").val();
+				var sentence = $("#sentence").html();
 				$.post("php_post/comb.php", {comb : sentence, me_id : me_id}, function(combing){
 					$("#sentence").html(combing);
 				});
