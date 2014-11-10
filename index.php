@@ -100,12 +100,9 @@
 				$.post("php_post/new_bad_words_script.php", {my_sentence : theSentenceProcessed}, function(bads){
 					$("#sentence").html(bads);
 				});
-				$.post("php_post/new_bad_words_script.php", {my_sentence : theSentence}, function(bads){
-					$("#sentence2").val(bads);
-				});
 			});
 			$("#submitSentence").click(function(){
-				var sentence = $("#sentence2").val();
+				var sentence = $("#sentence").val();
 				$.post("php_post/comb.php", {comb : sentence, me_id : me_id}, function(combing){
 					$("#sentence").html(combing);
 				});
@@ -113,8 +110,12 @@
 			$("#select_habitat").click(function(){
 						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
-					document.getElementById('callback').innerHTML=data3;
+							$("#emoteToggle").show();
+							$("#sentence").show();
+							$("#sentence_text").show();
+							document.getElementById('callback').innerHTML=data3;
 						});
+						
 					});
 					$("#next_habitat").click(function(){
 				//
@@ -141,13 +142,62 @@
 			$("#select_starter").click(function(){
 				var starter_bot = $("#starter_item img").attr("class");
 				$.post("php_post/checkIdentity.php", {me_id : me_id, starter_bot : starter_bot}, function(data2) {
-            document.getElementById('callback').innerHTML=data2;
-					$("#select_habitat").click(function(){
-						var starter_habitat = $("#starter_habitat img").attr("class");
-						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
-					document.getElementById('callback').innerHTML=data3;
-						});
+				document.getElementById('callback').innerHTML=data2;
+				$("#select_name").click(function(){
+					var starter_bot = $("#starter_bot_remember").val();
+					var starter_name = $("#robot_name").val();
+					$.post("php_post/check_bot_name.php", {me_id : me_id, starter_name : starter_name}, function(checkData){
+						$("#check_this_name").html(checkData); ///if this warning label isn't empty, nothing will submit to the database
+						if(checkData === "Success!"){
+							$.post("php_post/checkIdentity.php", {me_id : me_id, starter_bot : starter_bot, starter_name : starter_name}, function(bringup){
+								$("#callback").html(bringup);
+								$("#select_habitat").click(function(){
+								var starter_habitat = $("#starter_habitat img").attr("class");
+									$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
+										document.getElementById('callback').innerHTML=data3; //code is repeating; add functions
+										$("#emoteToggle").show();
+										$("#sentence").show();
+										$("#sentence_text").show();
+									});
+								});
+								$("#next_habitat").click(function(){
+							//
+									if($("#starter_habitat img").attr("class")=="spaceship"){
+										   $("#starter_habitat img").attr("alt", "backyard").attr("class", "backyard").attr("src", "assets_and_scenes/habitat2.jpg").fadeIn();
+										   $("#welcome").html('<p>Backyard lawn suitable for a<br>friendly pet robot at home.</p>');
+									}
+									else if($("#starter_habitat img").attr("class")=="backyard"){
+										   $("#starter_habitat img").attr("alt", "city").attr("class", "city").attr("src", "assets_and_scenes/habitat3.jpg").fadeIn();
+										   $("#welcome").html("<p>View of the city.</p>");
+									}
+									else if($("#starter_habitat img").attr("class")=="city"){
+										   $("#starter_habitat img").attr("alt", "mad scientist lab").attr("class", "lab").attr("src", "assets_and_scenes/habitat4.jpg").fadeIn();
+											$("#welcome").html('<p>Mad science is<br>always fun.</p>');
+									}
+									else {
+										   $("#starter_habitat img").attr("alt", "spaceship").attr("class", "spaceship").attr("src", "assets_and_scenes/habitat1.jpg").fadeIn();
+										   $("#welcome").html('<p>What better place<br>to be as a robot?</p>');
+										   //Note that background images needn't be all one file. They can be layered, and
+										   //while containing perhaps some flash objects for the main bacground, can also
+										   //have some objects further in the foregorund for the robot to interact with.
+									}
+								});
+							});
+						}
 					});
+				});	
+				$("#starter_bot_remember").keyup(function(){
+					$("#check_this_name").html(""); //reset the warning label so users have a chance again to type correctly
+				});
+				$("#select_habitat").click(function(){
+					var starter_habitat = $("#starter_habitat img").attr("class");
+					$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
+						document.getElementById('callback').innerHTML=data3;
+						$("#emoteToggle").show();
+						$("#sentence").show();
+						$("#sentence_text").show();
+					});
+				});
 					$("#next_habitat").click(function(){
 				//
 						if($("#starter_habitat img").attr("class")=="spaceship"){
@@ -176,20 +226,20 @@
 			$("#next_starter").click(function(){
 				//
                 if($("#starter_item img").attr("class")=="pseudo"){
-                       $("#starter_item img").attr("alt", "four hundred fifty power coins and one Connectotalx robot").attr("class","connect").attr("src", "assets_and_scenes/connectPack.png").fadeIn();
-						   $("#welcome").html('<p>Connectotalx repeats anything it hears<br>except for common cursewords.</p>');
+                       $("#starter_item img").attr("alt", "Connectotalx robot").attr("class","connect").attr("src", "assets_and_scenes/connectotalx.png").fadeIn();
+						   $("#welcome").html('<p>Connectotalx is a three-eyed wrench-bearing robot.</p>');
                 }
                 else if($("#starter_item img").attr("class")=="connect"){
-                       $("#starter_item img").attr("alt", "five hundred power coins and one Molly bot").attr("class", "molly").attr("src", "assets_and_scenes/mollyPack.png").fadeIn();
-					$("#welcome").html("<p>Mollybot doesn't learn,<br>but switches personalities.</p>");
+                       $("#starter_item img").attr("alt", "Molly bot").attr("class", "molly").attr("src", "bot_img/mollybot_char.png").fadeIn();
+					$("#welcome").html("<p>Mollybot may look like a clown, but she'll surprise you!</p>");
                 }
                 else if($("#starter_item img").attr("class")=="molly"){
-                       $("#starter_item img").attr("alt", "eight hundred power coins and one Clever Fred robot").attr("class", "fred").attr("src", "assets_and_scenes/fredPack.png").fadeIn();
-					$("#welcome").html('<p>Clever Fred tries to tell jokes.</p>');
+                       $("#starter_item img").attr("alt", "Clever Fred robot").attr("class", "fred").attr("src", "bot_img/cleverfredPack.png").fadeIn();
+					$("#welcome").html('<p>Clever Fred thinks he\'s so smart...</p>');
                 }
                 else {
-                    $("#starter_item img").attr("alt", "seven hundred power coins and one pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/pseudobotPack.png").fadeIn();
-					$("#welcome").html('<p>Pseudobot speaks by checking to what degree<br>a word represents something.</p>');
+                    $("#starter_item img").attr("alt", "pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/robotMain.png").fadeIn();
+					$("#welcome").html('<p>Pseudobot is standard robot-looking robot.</p>');
                 }
             });
 			$("#emoteToggle").click(function() {
@@ -234,24 +284,24 @@
                        left: 610px;
                        top: 345px;
                        }
-				#starter_item, #starter_habitat {
+				#starter_item, #starter_habitat, #starter_name {
 						position: absolute;
 						top:110px;
                                }
                        #starter_item {
 						left:435px;
                        }
-                       #starter_habitat {
+                       #starter_habitat, #starter_name {
                                left:295px;
                        }
-				#starter_buttons, #starter_habitat_buttons {
+				#starter_buttons, #starter_habitat_buttons, #select_name {
 						position: absolute;
 						top:270px;
 				}
                #starter_buttons {
 					left:435px;
                }
-               #starter_habitat_buttons {
+               #starter_habitat_buttons, #select_name {
                                left:295px;
                }
                button {
@@ -348,6 +398,6 @@
         <fb:comments href="https://www.intelligent-ecards.com/game/comments" numposts="7" colorscheme="light">
        </fb:comments>
         <div id='apiDiv'></div>
-		<input id="sentence2" name="sentence2" type="hidden" />
+		<div id="check_this_name"></div>
 </body>
 </html>
