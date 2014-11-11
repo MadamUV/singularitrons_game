@@ -17,6 +17,7 @@ if (isset($_POST['comb'])) {
 		//convert apostrophes and quotes
 		$remove_punctuation = array("'", '"');
 		$comb_unoriginal = str_replace($remove_punctuation, "\"", $comb_unoriginal);
+		$icons_written = "";
 		foreach($check_against as $key => $value) {
 			if(strpos($comb_unoriginal, $value) != false){
 				$comb_unoriginal = str_replace($value, $key, $comb_unoriginal); //replaced directly from $comb_unoriginal instead of $comb1
@@ -24,7 +25,6 @@ if (isset($_POST['comb'])) {
 			}
 		}
 		$comb1 = explode(" ", $comb_unoriginal);
-		print_r($comb1);
                 //
                 //
                 //
@@ -222,7 +222,8 @@ if (isset($_POST['comb'])) {
 							}
                        }
 					else if (count($input_array)>15){
-						return "Please enter 15 words or less so I can form small enough sentences.";
+						alert("Please enter 15 words or less. If you want more words per sentence, you may purchase SingularCoins and you can get 5 to 15 more words with a premium robot.");
+						return false;
 					}
                 }
 			}
@@ -239,7 +240,7 @@ if (isset($_POST['comb'])) {
 			$the_array = combinations($comb1);
 				foreach ($the_array as $combinations_for_table){
 					$encode = json_encode($combinations_for_table);
-					if(count($icons_written)>0){
+					if($icons_written != ""){
 						$sql = "INSERT INTO json_additions (addition, icons) VALUES ('" . $encode . "', '" . $icons_written . "')";
 						mysqli_query($conn, $sql);
 					}
