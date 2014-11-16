@@ -22,7 +22,7 @@ if (isset($_POST['my_sentence'])) {
 
 	ch,arschficker,arschlecker,arschloch,arse,arsehole,asbak,Asesinato,ash0le,ash0les,asholes,asno,a
 
-	so,ass,Ass Monkey,assatanato,asses,Assface,assfucker,ass-
+	so,Ass Monkey,assatanato,asses,Assface,assfucker,ass-
 
 	fucker,assfukka,assh0le,assh0lez,asshole,assholes,assholz,assmunch,assrammer,asswhole,asswipe,au
 
@@ -406,9 +406,22 @@ if (isset($_POST['my_sentence'])) {
 
 	// end segment.
 		$words = explode(",", $wordlist);
-		$comment_lower = strtolower($comment);
+		$comment_to_lower = strtolower($comment);
+		$sentence = explode(" ", $comment_to_lower);
+		$regular_case_sentence = explode(" ", $comment);
+		$insert_sentence_array = array();
+		for($i=0; $i<count($sentence); $i++){
+			if($sentence[i] == "ass"){
+				array_push($insert_sentence_array, str_ireplace("ass", addStars("ass")));
+			}
+			else {
+				array_push($insert_sentence_array, $regular_case_sentence[$i]);
+			}
+		}
+		$comment = implode(" ", $insert_sentence_array);
+		$comment_to_lower = strtolower($comment);
 		foreach($words as $word){
-			if(strpos($comment_lower, $word) !== false){
+			if(strpos($comment_to_lower, $word) !== false){
 				$comment = str_ireplace($word, addStars($word), $comment);
 			}
 		}
