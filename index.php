@@ -19,10 +19,6 @@
 <body>
         <div id="callback"><img src="assets_and_scenes/singular_singularitrons2_3.jpg" alt="singulatrons have arrived and the robots want companionship and to talk"></div>
         <script>
-		
-		$(document).ready(function(){
-			$("#emotes").hide();
-		});
                 function statusChangeCallback(response) {
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
@@ -76,6 +72,9 @@
   });
 };
 
+$(document).ready(function(){
+	$("#emotes").hide();
+});
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -90,7 +89,7 @@
 		var theSentence = $(this).val();
 		//replacement
 		//use a for loop
-		var iconArray = [["/caution", '<img src="icons/caution.png" alt="caution">'], ["/heart", '<img src="icons/heart.png" alt="heart">'], ["/inside", '<img src="icons/inside.png" alt="inside">'], ["/music", '<img src="icons/musical_note.png" alt="music">'], ["/shamrock", '<img src="icons/shamrock.png" alt="shamrock">'], ["/redo", '<img src="icons/redo.png" alt="redo">'], ["/undo", '<img src="icons/undo.png" alt="undo">'], ["/star", '<img src="icons/star.png" alt="star">'], ["/phone", '<img src="phone/caution.png" alt="phone">'], ["/time", '<img src="icons/waiting.png" alt="time">'], ["/wider", '<img src="icons/wider.png" alt="wider">'], ["/taller", '<img src="icons/taller.png" alt="taller">'], ["/ice", '<img src="icons/Ice.png" alt="ice">'], ["/clouds", '<img src="icons/Overcast.png" alt="clouds">'], ["/rainbow", '<img src="icons/Rainbow.png" alt="rainbow">'], ["/sun", '<img src="icons/Sunny.png" alt="sun">'], ["/fire", '<img src="icons/fire.png" alt="fire">'], ["/afraid", '<img src="icons/afraid.png" alt="afraid">'], ["/happy", '<img src="icons/happy.png" alt="happy">'], ["/delighted", '<img src="icons/delighted.png" alt="delighted">'], ["/disgusted", '<img src="icons/disgusted.png" alt="disgusted">'], ["/angry", '<img src="icons/angry.png" alt="angry">'], ["/confused", '<img src="icons/confused.png" alt="confused">'], ["/bird", '<img src="icons/bird_contour.png" alt="bird">'], ["/bull", '<img src="icons/bull_contour.png" alt="caution">'], ["/cat", '<img src="icons/cat_contour.png" alt="cat">'], ["/cow", '<img src="icons/cow_contour.png" alt="cow">'], ["/duck", '<img src="icons/duck_contour.png" alt="duck">'], ["/elephant", '<img src="icons/elephant_contour.png" alt="elephant">'], ["/fish", '<img src="icons/fish_contour.png" alt="fish">'], ["/horse", '<img src="icons/horse_contour.png" alt="horse">'], ["/ladybug", '<img src="icons/ladybug_contour.png" alt="ladybug">'], ["/leopard", '<img src="icons/leopard_contour.png" alt="leopard">'], ["/lion", '<img src="icons/lion_contour.png" alt="lion">'], ["/zero", '<img src="icons/zero.png" alt="zero">'], ["/one", '<img src="icons/one.png" alt="one">'], ["/two", '<img src="icons/two.png" alt="two">'], ["/three ", '<img src="icons/three.png" alt="three">'], ["/four", '<img src="icons/four.png" alt="four">'], ["/five", '<img src="icons/five.png" alt="five">'], ["/six", '<img src="icons/six.png" alt="six">'], ["/seven", '<img src="icons/seven.png" alt="seven">'], ["/eight", '<img src="icons/eight.png" alt="eight">'], ["/nine", '<img src="icons/nine.png" alt="nine">'], ["/miserable", '<img src="icons/miserable.png" alt="miserable">'], ["/surprised", '<img src= "icons/surprised.png" alt="surprised">'], ["/outside", '<img src="icons/outside.png" alt="outside">'], ["/sad", '<img src="icons/sad.png" alt="sad">']]; //alter theSentence.
+		var iconArray = [["/caution", '<img src="icons/caution.png" alt="caution">'], ["/heart", '<img src="icons/heart.png" alt="heart">'], ["/inside", '<img src="icons/inside.png" alt="inside">'], ["/music", '<img src="icons/musical_note.png" alt="music">'], ["/shamrock", '<img src="icons/shamrock.png" alt="shamrock">'], ["/redo", '<img src="icons/redo.png" alt="redo">'], ["/undo", '<img src="icons/undo.png" alt="undo">'], ["/star", '<img src="icons/star.png" alt="star">'], ["/phone", '<img src="phone/caution.png" alt="phone">'], ["/time", '<img src="icons/waiting.png" alt="time">'], ["/wider", '<img src="icons/wider.png" alt="wider">'], ["/taller", '<img src="icons/taller.png" alt="taller">'], ["/ice", '<img src="icons/Ice.png" alt="ice">'], ["/clouds", '<img src="icons/Overcast.png" alt="clouds">'], ["/rainbow", '<img src="icons/Rainbow.png" alt="rainbow">'], ["/sun", '<img src="icons/Sunny.png" alt="sun">'], ["/fire", '<img src="icons/fire.png" alt="fire">'], ["/afraid", '<img src="icons/afraid.png" alt="afraid">'], ["/happy", '<img src="icons/happy.png" alt="happy">'], ["/delighted", '<img src="icons/delighted.png" alt="delighted">'], ["/disgusted", '<img src="icons/disgusted.png" alt="disgusted">'], ["/angry", '<img src="icons/angry.png" alt="angry">'], ["/confused", '<img src="icons/confused.png" alt="confused">'], ["/bird", '<img src="icons/bird_contour.png" alt="bird">'], ["/bull", '<img src="icons/bull_contour.png" alt="bull">'], ["/cat", '<img src="icons/cat_contour.png" alt="cat">'], ["/cow", '<img src="icons/cow_contour.png" alt="cow">'], ["/duck", '<img src="icons/duck_contour.png" alt="duck">'], ["/elephant", '<img src="icons/elephant_contour.png" alt="elephant">'], ["/fish", '<img src="icons/fish_contour.png" alt="fish">'], ["/horse", '<img src="icons/horse_contour.png" alt="horse">'], ["/ladybug", '<img src="icons/ladybug_contour.png" alt="ladybug">'], ["/leopard", '<img src="icons/leopard_contour.png" alt="leopard">'], ["/lion", '<img src="icons/lion_contour.png" alt="lion">'], ["/zero", '<img src="icons/zero.png" alt="zero">'], ["/one", '<img src="icons/one.png" alt="one">'], ["/two", '<img src="icons/two.png" alt="two">'], ["/three ", '<img src="icons/three.png" alt="three">'], ["/four", '<img src="icons/four.png" alt="four">'], ["/five", '<img src="icons/five.png" alt="five">'], ["/six", '<img src="icons/six.png" alt="six">'], ["/seven", '<img src="icons/seven.png" alt="seven">'], ["/eight", '<img src="icons/eight.png" alt="eight">'], ["/nine", '<img src="icons/nine.png" alt="nine">'], ["/miserable", '<img src="icons/miserable.png" alt="miserable">'], ["/surprised", '<img src= "icons/surprised.png" alt="surprised">'], ["/outside", '<img src="icons/outside.png" alt="outside">'], ["/sad", '<img src="icons/sad.png" alt="sad">']]; //alter theSentence.
 		var i=0;
 		var theSentenceProcessed=theSentence;
 		for(i=0; i<iconArray.length; i++){
@@ -107,12 +106,7 @@
 			});
 		});
   }
-  
-  function toggleEmotes() {
-	$("#emoteToggle").click(function() {
-		$("#emotes").toggle("slow");
-	});
-  }
+
   // on login success
   function useAPI() {
     FB.api('/me', function(response) {
@@ -122,7 +116,7 @@
             $("#buttonDiv").html('Logged in');
             $.post("php_post/checkIdentity.php", {me_id : me_id, me_firstname : me_firstname}, function(data) {
 				document.getElementById('callback').innerHTML=data;
-				toggleEmotes();
+				$("#emotes").fadeIn();
 				$("#select_name").click(function(){
 					var starter_bot = $("#starter_bot_remember").val();
 					var starter_name = $("#robot_name").val();
@@ -135,7 +129,7 @@
 								var starter_habitat = $("#starter_habitat img").attr("class");
 									$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 										document.getElementById('callback').innerHTML=data3; //code is repeating; add functions
-										toggleEmotes();
+										$("#emotes").fadeIn();
 										performChat();
 									});
 								});
@@ -169,7 +163,7 @@
 						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 							document.getElementById('callback').innerHTML=data3;
-							toggleEmotes();
+							$("#emotes").fadeIn();
 							performChat();
 						});
 					});
@@ -199,7 +193,7 @@
 		var theSentence = $(this).val();
 		//replacement
 		//use a for loop
-		var iconArray = [["/caution", '<img src="icons/caution.png" alt="caution">'], ["/heart", '<img src="icons/heart.png" alt="heart">'], ["/inside", '<img src="icons/inside.png" alt="inside">'], ["/music", '<img src="icons/musical_note.png" alt="music">'], ["/shamrock", '<img src="icons/i.png" alt="shamrock">'], ["/redo", '<img src="icons/redo.png" alt="redo">'], ["/undo", '<img src="icons/undo.png" alt="undo">'], ["/star", '<img src="icons/star.png" alt="star">'], ["/phone", '<img src="phone/caution.png" alt="phone">'], ["/time", '<img src="icons/waiting.png" alt="time">'], ["/wider", '<img src="icons/wider.png" alt="wider">'], ["/taller", '<img src="icons/taller.png" alt="taller">'], ["/ice", '<img src="icons/Ice.png" alt="ice">'], ["/clouds", '<img src="icons/Overcast.png" alt="clouds">'], ["/rainbow", '<img src="icons/Rainbow.png" alt="rainbow">'], ["/sun", '<img src="icons/Sunny.png" alt="sun">'], ["/fire", '<img src="icons/fire.png" alt="fire">'], ["/afraid", '<img src="icons/afraid.png" alt="afraid">'], ["/happy", '<img src="icons/happy.png" alt="happy">'], ["/delighted", '<img src="icons/delighted.png" alt="delighted">'], ["/disgusted", '<img src="icons/disgusted.png" alt="disgusted">'], ["/angry", '<img src="icons/angry.png" alt="angry">'], ["/confused", '<img src="icons/confused.png" alt="confused">'], ["/bird", '<img src="icons/bird_contour.png" alt="bird">'], ["/bull", '<img src="icons/bull_contour.png" alt="caution">'], ["/cat", '<img src="icons/cat_contour.png" alt="cat">'], ["/cow", '<img src="icons/cow_contour.png" alt="cow">'], ["/duck", '<img src="icons/duck_contour.png" alt="duck">'], ["/elephant", '<img src="icons/elephant_contour.png" alt="elephant">'], ["/fish", '<img src="icons/fish_contour.png" alt="fish">'], ["/horse", '<img src="icons/horse_contour.png" alt="horse">'], ["/ladybug", '<img src="icons/ladybug_contour.png" alt="ladybug">'], ["/leopard", '<img src="icons/leopard_contour.png" alt="leopard">'], ["/lion", '<img src="icons/lion_contour.png" alt="lion">'], ["/zero", '<img src="icons/zero.png" alt="zero">'], ["/one", '<img src="icons/one.png" alt="one">'], ["/two", '<img src="icons/two.png" alt="two">'], ["/three ", '<img src="icons/three.png" alt="three">'], ["/four", '<img src="icons/four.png" alt="four">'], ["/five", '<img src="icons/five.png" alt="five">'], ["/six", '<img src="icons/six.png" alt="six">'], ["/seven", '<img src="icons/seven.png" alt="seven">'], ["/eight", '<img src="icons/eight.png" alt="eight">'], ["/nine", '<img src="icons/nine.png" alt="nine">'], ["/miserable", '<img src="icons/miserable.png" alt="miserable">'], ["/surprised", '<img src= "icons/surprised.png" alt="surprised">'], ["/outside", '<img src="icons/outside.png" alt="outside">'], ["/sad", '<img src="icons/sad.png" alt="sad">']]; //alter theSentence.
+		var iconArray = [["/caution", '<img src="icons/caution.png" alt="caution">'], ["/heart", '<img src="icons/heart.png" alt="heart">'], ["/inside", '<img src="icons/inside.png" alt="inside">'], ["/music", '<img src="icons/musical_note.png" alt="music">'], ["/shamrock", '<img src="icons/shamrock.png" alt="shamrock">'], ["/redo", '<img src="icons/redo.png" alt="redo">'], ["/undo", '<img src="icons/undo.png" alt="undo">'], ["/star", '<img src="icons/star.png" alt="star">'], ["/phone", '<img src="icons/touch_phone.png" alt="phone">'], ["/time", '<img src="icons/waiting.png" alt="time">'], ["/wider", '<img src="icons/wider.png" alt="wider">'], ["/taller", '<img src="icons/taller.png" alt="taller">'], ["/ice", '<img src="icons/Ice.png" alt="ice">'], ["/clouds", '<img src="icons/Overcast.png" alt="clouds">'], ["/rainbow", '<img src="icons/Rainbow.png" alt="rainbow">'], ["/sun", '<img src="icons/Sunny.png" alt="sun">'], ["/fire", '<img src="icons/fire.png" alt="fire">'], ["/afraid", '<img src="icons/afraid.png" alt="afraid">'], ["/happy", '<img src="icons/happy.png" alt="happy">'], ["/delighted", '<img src="icons/delighted.png" alt="delighted">'], ["/disgusted", '<img src="icons/disgusted.png" alt="disgusted">'], ["/angry", '<img src="icons/angry.png" alt="angry">'], ["/confused", '<img src="icons/confused.png" alt="confused">'], ["/bird", '<img src="icons/bird_contour.png" alt="bird">'], ["/bull", '<img src="icons/bull_contour.png" alt="bull">'], ["/cat", '<img src="icons/cat_contour.png" alt="cat">'], ["/cow", '<img src="icons/cow_contour.png" alt="cow">'], ["/duck", '<img src="icons/duck_contour.png" alt="duck">'], ["/elephant", '<img src="icons/elephant_contour.png" alt="elephant">'], ["/fish", '<img src="icons/fish_contour.png" alt="fish">'], ["/horse", '<img src="icons/horse_contour.png" alt="horse">'], ["/ladybug", '<img src="icons/ladybug_contour.png" alt="ladybug">'], ["/leopard", '<img src="icons/leopard_contour.png" alt="leopard">'], ["/lion", '<img src="icons/lion_contour.png" alt="lion">'], ["/turtle", '<img src="icons/turtle_contour.png" alt="turtle">'], ["/zero", '<img src="icons/zero.png" alt="zero">'], ["/one", '<img src="icons/one.png" alt="one">'], ["/two", '<img src="icons/two.png" alt="two">'], ["/three ", '<img src="icons/three.png" alt="three">'], ["/four", '<img src="icons/four.png" alt="four">'], ["/five", '<img src="icons/five.png" alt="five">'], ["/six", '<img src="icons/six.png" alt="six">'], ["/seven", '<img src="icons/seven.png" alt="seven">'], ["/eight", '<img src="icons/eight.png" alt="eight">'], ["/nine", '<img src="icons/nine.png" alt="nine">'], ["/miserable", '<img src="icons/miserable.png" alt="miserable">'], ["/surprised", '<img src= "icons/surprised.png" alt="surprised">'], ["/outside", '<img src="icons/outside.png" alt="outside">'], ["/sad", '<img src="icons/sad.png" alt="sad">']]; //alter theSentence.
 		var i=0;
 		var theSentenceProcessed=theSentence;
 		for(i=0; i<iconArray.length; i++){
@@ -219,7 +213,7 @@
 						var starter_habitat = $("#starter_habitat img").attr("class");
 						$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 							document.getElementById('callback').innerHTML=data3;
-							toggleEmotes();
+							$("#emotes").fadeIn();
 							performChat();
 						});
 					});
@@ -261,7 +255,7 @@
 								var starter_habitat = $("#starter_habitat img").attr("class");
 									$.post("php_post/checkIdentity.php", {me_id : me_id, starter_habitat : starter_habitat}, function(data3) {
 										document.getElementById('callback').innerHTML=data3; //code is repeating; add functions
-										toggleEmotes();
+										$("#emotes").fadeIn();
 										performChat();
 									});
 								});
@@ -345,9 +339,6 @@
 					$("#welcome").html('<p>Pseudobot is standard robot-looking robot.</p>');
                 }
             });
-			$("#emoteToggle").click(function() {
-				$("#emotes").toggle("slow");
-			});
         });//take care of the conditionals in the php script	
 	});
 }	
@@ -413,88 +404,6 @@
         </style>
         
         <div id="buttonDiv"><button id="login_button">Login</button></div>
-		<div id="emotes"><table cellpadding="5">
-			<tr>
-				<td>General icons</td>
-				<td><img src="icons/caution.png" alt="caution"><br>/caution</td>
-				<td><img src="icons/heart.png" alt="heart"><br>/heart</td>
-				<td><img src="icons/inside.png" alt="inside"><br>/inside</td>
-				<td><img src="icons/outside.png" alt="outside"><br>/outside</td>
-				<td><img src="icons/musical_note.png" alt="music"><br>/music</td>
-				<td><img src="icons/shamrock.png" alt="shamrock"><br>/shamrock</td>
-			</tr>
-			<tr>
-				<td><img src="icons/redo.png" alt="redo"><br>/redo</td>
-				<td><img src="icons/undo.png" alt="undo"><br>/undo</td>
-				<td><img src="icons/star.png" alt="star"><br>/star</td>
-				<td><img src="icons/touch_phone.png" alt="phone"><br>/phone</td>
-				<td><img src="icons/waiting.png" alt="time"><br>/time</td>
-				<td><img src="icons/wider.png" alt="wider"><br>/wider</td>
-				<td><img src="icons/taller.png" alt="taller"><br>/taller</td>
-			</tr>
-			<tr>
-				<td>Weather icons</td>
-				<td><img src="icons/Ice.png" alt="ice"><br>/ice</td>
-				<td><img src="icons/Overcast.png" alt="clouds"><br>/clouds</td>
-				<td><img src="icons/Rainbow.png" alt="rainbow"><br>/rainbow</td>
-				<td><img src="icons/Sunny.png" alt="sun"><br>/sun</td>
-				<td><img src="icons/fire.png" alt="fire"><br>/fire</td>
-			</tr>
-			<tr>
-				<td>Emotes</td>
-				<td><img src="icons/afraid.png" alt="afraid"><br>/afraid</td>
-				<td><img src="icons/happy.png" alt="happy"><br>/happy</td>
-				<td><img src="icons/delighted.png" alt="delighted"><br>/delighted</td>
-				<td><img src="icons/disgusted.png" alt="disgusted"><br>/disgusted</td>
-				<td><img src="icons/angry.png" alt="angry"><br>/angry</td>
-				<td><img src="icons/confused.png" alt="confused"><br>/confused</td>
-			</tr>
-			<tr>
-				<td><img src="icons/miserable.png" alt="miserable"><br>/miserable</td>
-				<td><img src="icons/surprised.png" alt="surprised"><br>/surprised</td>
-				<td><img src="icons/sad.png" alt="sad"><br>/sad</td>
-			</tr>
-			<tr>
-				<td>Animals</td>
-				<td><img src="icons/bird_contour.png" alt="bird"><br>/bird</td>
-				<td><img src="icons/bull_contour.png" alt="bull"><br>/bull</td>
-				<td><img src="icons/cat_contour.png" alt="cat"><br>/cat</td>
-				<td><img src="icons/cow_contour.png" alt="cow"><br>/cow</td>
-				<td><img src="icons/duck_contour.png" alt="duck"><br>/duck</td>
-			</tr>
-			<tr>
-				<td><img src="icons/elephant_contour.png" alt="elephant"><br>/elephant</td>
-				<td><img src="icons/fish_contour.png" alt="fish"><br>/fish</td>
-				<td><img src="icons/horse_contour.png" alt="horse"><br>/horse</td>
-				<td><img src="icons/ladybug_contour.png" alt="ladybug"><br>/ladybug</td>
-				<td><img src="icons/leopard_contour.png" alt="leopard"><br>/leopard</td>
-				<td><img src="icons/lion_contour.png" alt="lion"><br>/lion</td>
-			</tr>
-			<tr>
-				<!-- commenting a few out 
-				<td><img src="icons/lobster_contour.png" alt="lobster"></td>
-				<td><img src="icons/rabbit_contour.png" alt="rabbit"></td>
-				<td><img src="icons/snail_contour.png" alt="snail"></td> -->
-				<td><img src="icons/turtle_contour.png" alt="turtle"><br>/turtle</td>
-			</tr>
-			<tr>
-				<td>Numbers</td>
-				<td><img src="icons/zero.png" alt="zero"><br>/zero</td>
-				<td><img src="icons/one.png" alt="one"><br>/one</td>
-				<td><img src="icons/two.png" alt="two"><br>/two</td>
-				<td><img src="icons/three.png" alt="three"><br>/three</td>
-				<td><img src="icons/four.png" alt="four"><br>/four</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><img src="icons/five.png" alt="five"><br>/five</td>
-				<td><img src="icons/six.png" alt="six"><br>/six</td>
-				<td><img src="icons/seven.png" alt="seven"><br>/seven</td>
-				<td><img src="icons/eight.png" alt="eight"><br>/eight</td>
-				<td><img src="icons/nine.png" alt="nine"><br>/nine</td>
-			</tr>
-		</table>
-		</div>
 		<input id="testEmotes" name="testEmotes" value="0" type="hidden"/>
 		<div id="attr">Some icons in this game were created by Aha-Soft: <a href="http://www.softicons.com/game-icons/free-game-icons-by-aha-soft">See here</a>
 		<br>And some created by Icons-Land: <a href="http://www.icons-land.com">See here</a></div>
