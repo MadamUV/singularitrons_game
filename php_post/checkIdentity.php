@@ -7,7 +7,7 @@
 		$result_user = mysqli_query($conn, $sql_user);
         $result1 = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result1);
-		$sql_owner = "SELECT * FROM botidentification WHERE user_id='" . $me_id . "'";
+		$sql_owner = "SELECT * FROM botid WHERE user_id='" . $me_id . "'";
 		$result_owner = mysqli_query($conn, $sql_owner);
 		$sql_habitat = "SELECT * FROM ownedhabitats WHERE user_id='" . $me_id . "'";
 		$result_habitat = mysqli_query($conn, $sql_habitat);
@@ -153,7 +153,7 @@
 			else if(isset($_POST['starter_name']) && isset($_POST['starter_bot'])) {
 				$starter_bot = $_POST['starter_bot'];
 				$starter_name = $_POST['starter_name'];
-				$sql_insert = "INSERT INTO botidentification (user_id, bot_type, bot_word_type, bot_name) VALUES ('" . $me_id . "', '" . $starter_bot . "', 'default', '" . $starter_name . "')";
+				$sql_insert = "INSERT INTO botid (user_id, bot_type, bot_word_type, bot_name) VALUES ('" . $me_id . "', '" . $starter_bot . "', 'default', '" . $starter_name . "')";
 				mysqli_query($conn, $sql_insert);
 				echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Welcome!</font><br>Greetings, my friend!<br>Please select your<br> robot habitat from the right!</div><div id="starter_habitat"><img src="assets_and_scenes/habitat1.jpg" alt="spaceship" class="spaceship"></div><div id="starter_habitat_buttons"><button id="select_habitat">Select starter habitat</button><br><button id="next_habitat">Next habitat choice</button></div>';
 			}
