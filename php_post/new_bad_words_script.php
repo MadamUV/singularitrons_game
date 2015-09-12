@@ -388,7 +388,7 @@ if (isset($_POST['my_sentence'])) {
 
 	foder,vaj1na,vajina,vangare,veado,venire,venus mound,Verga,vergallen,verkloten,verneuken,vete a 
 
-	la mierda,veuve,viagra,viande a pneus,vibrador,vibrator,viespeuk,vingeren,violet blue,violet 
+	la mierda,veuve,viagra,viande a pneus,vibrador,vibrator,viespeuk,vingeren,violet 
 
 	wand,vittu,vleesroos,vögeln,vollpfosten,voor jan lul,voor jan-met-de-korte-
 
