@@ -411,5 +411,12 @@ $(document).ready(function(){
        </fb:comments>
         <div id='apiDiv'></div>
 		<div id="check_this_name"></div>
+		<div id="theaudio">
+			<audio loop autoplay>
+				<source src="robots3.mp3">
+				<source src="robots3.ogg">
+				Your browser doesn't support the HTML5 audio element.
+			</audio>
+		</div>
 </body>
 </html>
