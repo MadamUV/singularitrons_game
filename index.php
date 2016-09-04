@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <title>Singularitrons</title>
         <link rel="stylesheet" href="../style.css" type="text/css" media="screen">
-        <script src="../scripts/jquery.js"></script>
+        <script src="jquery.js"></script>
 </head>
 <body>
         <div id="callback"><img src="assets_and_scenes/singular_singularitrons2_3.jpg" alt="singulatrons have arrived and the robots want companionship and to talk"></div>
@@ -108,7 +108,7 @@ $(document).ready(function(){
   }
 
   // on login success
-  function useAPI() {
+  function useAPI() {/
     FB.api('/me', function(response) {
             var me_id = response.id;
             var me_firstname = response.first_name;
@@ -417,6 +417,6 @@ $(document).ready(function(){
 				<source src="robots3.ogg">
 				Your browser doesn't support the HTML5 audio element.
 			</audio>
-		</div>
+		</div> 
 </body>
 </html>
