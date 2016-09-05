@@ -13,7 +13,7 @@
         <meta property="og:type" content="fbpayment:subscription" />
 <meta charset="UTF-8">
 <title>Singularitrons</title>
-        <link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="style.css" type="text/css" media="screen">
         <script src="jquery.js"></script>
 </head>
 <body>
@@ -418,6 +418,5 @@ $(document).ready(function(){
 				Your browser doesn't support the HTML5 audio element.
 			</audio>
 		</div> 
-		<img src="icons/horse.png">
 </body>
 </html>
