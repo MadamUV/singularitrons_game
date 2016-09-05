@@ -109,19 +109,19 @@
 				$starter_bot = $_POST['starter_bot'];
 				if($starter_bot=="pseudo") {
 					$starter_bot_thing = "<input id='starter_bot_remember' name='starter_bot_remember' type='hidden' value='pseudo'/>";
-					$bot_image = '<img src="assets_and_scenes/robotMain.png" alt="pseudobot preview">';
+					$bot_image = '<img src="assets_and_scenes/pseudobotPack.png" alt="pseudobot preview">';
 				}
 				else if($starter_bot=="connect"){
 					$starter_bot_thing = "<input id='starter_bot_remember' name='starter_bot_remember' type='hidden' value='connect'/>";
-					$bot_image = '<img src="assets_and_scenes/connectotalx.png" alt="connectotalx preview">';
+					$bot_image = '<img src="assets_and_scenes/connectPack.png" alt="connectotalx preview">';
 				}
 				else if($starter_bot=="molly"){
 					$starter_bot_thing = "<input id='starter_bot_remember' name='starter_bot_remember' type='hidden' value='molly'/>";
-					$bot_image = '<img src="assets_and_scenes/mollybot_char.png" alt="mollybot preview">';
+					$bot_image = '<img src="assets_and_scenes/mollyPack.png" alt="mollybot preview">';
 				}
 				else if($starter_bot=="fred"){
 					$starter_bot_thing = "<input id='starter_bot_remember' name='starter_bot_remember' type='hidden' value='fred'/>";
-					$bot_image = '<img src="assets_and_scenes/cleverfredPack.png" alt="clever fred preview">';
+					$bot_image = '<img src="assets_and_scenes/fredPack.png" alt="clever fred preview">';
 				}
 				echo '<img src="assets_and_scenes/welcomeSingularitrons.jpg" width="745" height="389" alt="banner for singularitrons"><div id="welcome"><font size="34">Welcome!</font><br>Now select your starter robot\'s name:<br><input id="robot_name" name="robot_name" type="text"/><br><div id="check_this_name"></div></div><div id="starter_name">' . $bot_image . '</div><button id="select_name">Enter name</button>' . $starter_bot_thing;
 				$sql_namer = "INSERT INTO users (user_id, type_of_first_robot) VALUES ('" . $me_id  . "', '" . $starter_bot . "')";
