@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	background: url('yellowstripes.png');
+	background: -o-linear-gradient(gold, #FC9);
+	background: -moz-linear-gradient(gold, #FC9);
+	background: linear-gradient(gold, #FC9);
+}
+#sidebar {
+	position:absolute;
+	width:250px;
+	top:40px;
+	right:100px;
+}
+#brown_kitten {
+	position:absolute;
+	left:600px;
+	top:700px;
+}
+@font-face {
+    font-family: 'caviardreams_regular_macroman';
+    src: url('fonts/caviardreams_regular_macroman/CaviarDreams-webfont.eot');
+    src: url('fonts/caviardreams_regular_macroman/CaviarDreams-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/caviardreams_regular_macroman/CaviarDreams-webfont.woff') format('woff'),
+         url('fonts/caviardreams_regular_macroman/CaviarDreams-webfont.ttf') format('truetype'),
+         url('fonts/caviardreams_regular_macroman/CaviarDreams-webfont.svg#CaviarDreams-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+	font-family: 'caviardreams_regular_macroman', Arial, sans-serif;
+	size:'28px';
+}
+#signupform {
+	margin-left:300px;
+}
+#container {
+	
+}
+#palette, #content {
+	position:relative;
+	float:left;
+}
+#inner {
+	margin-right:auto;
+	margin-left:auto;
+}
+#header-main {
+	background:#FFC;
+	margin-top:100;
+	transform:rotate(8deg);
+	-moz-transform:rotate(8deg);
+	-ms-transform:rotate(8deg);
+	-webkit-transform:rotate(8deg);
+}
+#pics, #pencilanim {
+	position:absolute;
+	top:80px;
+	right:80px;
+}
+#started {
+	margin:120px;
+}
+@media screen and (max-width: 920px) {
+	#signupform {
+		margin-left:230px;
+	}
+}
+@media screen and (max-width: 620px) {
+	#signupform {
+		margin-left:80px;
+	}
+}
