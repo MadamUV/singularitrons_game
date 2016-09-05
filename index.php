@@ -418,5 +418,6 @@ $(document).ready(function(){
 				Your browser doesn't support the HTML5 audio element.
 			</audio>
 		</div> 
+		<img src="horse.png">
 </body>
 </html>
