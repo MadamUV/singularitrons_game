@@ -108,7 +108,7 @@ $(document).ready(function(){
   }
 
   // on login success
-  function useAPI() {/
+  function useAPI() {
     FB.api('/me', function(response) {
             var me_id = response.id;
             var me_firstname = response.first_name;
