@@ -323,19 +323,19 @@ $(document).ready(function(){
 			$("#next_starter").click(function(){
 				//
                 if($("#starter_item img").attr("class")=="pseudo"){
-                       $("#starter_item img").attr("alt", "Connectotalx robot").attr("class","connect").attr("src", "assets_and_scenes/connectotalx.png").fadeIn();
+                       $("#starter_item img").attr("alt", "Connectotalx robot").attr("class","connect").attr("src", "assets_and_scenes/connectPack.png").fadeIn();
 						   $("#welcome").html('<p>Connectotalx is a three-eyed wrench-bearing robot.</p>');
                 }
                 else if($("#starter_item img").attr("class")=="connect"){
-                       $("#starter_item img").attr("alt", "Molly bot").attr("class", "molly").attr("src", "bot_img/mollybot_char.png").fadeIn();
+                       $("#starter_item img").attr("alt", "Molly bot").attr("class", "molly").attr("src", "assets_and_scenes/mollyPack.png").fadeIn();
 					$("#welcome").html("<p>Mollybot may look like a clown, but she'll surprise you!</p>");
                 }
                 else if($("#starter_item img").attr("class")=="molly"){
-                       $("#starter_item img").attr("alt", "Clever Fred robot").attr("class", "fred").attr("src", "bot_img/cleverfredPack.png").fadeIn();
+                       $("#starter_item img").attr("alt", "Clever Fred robot").attr("class", "fred").attr("src", "assets_and_scenes/fredPack.png").fadeIn();
 					$("#welcome").html('<p>Clever Fred thinks he\'s so smart...</p>');
                 }
                 else {
-                    $("#starter_item img").attr("alt", "pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/robotMain.png").fadeIn();
+                    $("#starter_item img").attr("alt", "pseudobot").attr("class", "pseudo").attr("src", "assets_and_scenes/pseudobotPack.png").fadeIn();
 					$("#welcome").html('<p>Pseudobot is standard robot-looking robot.</p>');
                 }
             });
